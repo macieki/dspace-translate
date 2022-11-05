@@ -1,0 +1,12 @@
+{
+	"data2": [{
+		"posts": [
+		{"id": 1, "title": "json"},
+		{"id": 2, "title": "serv"}
+		],
+		"profiles": [
+		{"id": 1, "name": "anton"},
+		{"id": 2, "name": "bert"}
+		]
+	}]
+}
