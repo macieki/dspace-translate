@@ -5,6 +5,7 @@
       "en": "You're not authorized to access this page. You can use the button below to get back to the home page.",
       "pl": "Nie masz uprawnień do dostępu do tej strony. Możesz użyć przycisku poniżej, aby powrócić do strony głównej.",
       "dspace": true,
+      "swps": true,
       "cris": true
     },
     {
@@ -12,14 +13,16 @@
       "en": "Take me to the home page",
       "pl": "Zabierz mnie na stronę główną",
       "dspace": true,
-      "cris": true
+      "cris": true,
+      "swps": false
     },
     {
       "id": "401.unauthorized",
       "en": "unauthorized",
       "pl": "nieautoryzowany",
       "dspace": true,
-      "cris": true
+      "cris": true,
+      "swps": true
     },
     {
       "id": "403.help",
@@ -33,7 +36,8 @@
       "en": "Take me to the home page",
       "pl": "Zabierz mnie na stronę główną",
       "dspace": true,
-      "cris": true
+      "cris": true,
+      "swps": true
     },
     {
       "id": "403.forbidden",
@@ -23047,6 +23051,16 @@
       "pl": "asdasd",
       "dspace": true,
       "cris": true
+    },
+    {
+      "id": "000.aaa.help",
+      "en": "aaaa",
+      "pl": "bbbb",
+      "dspace": false,
+      "cris": true,
+      "swps": false,
+      "asp": false,
+      "uw": false
     }
   ]
 }

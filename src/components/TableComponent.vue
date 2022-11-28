@@ -37,17 +37,9 @@
 		   color="secondary"
 		   dark
 		   class="mb-2"
-		   @click="saveJsonPl"
+		   @click="saveModal"
 		 >
-		   Pobierz JSON pl
-		 </v-btn>
-		 <v-btn
-		   color="secondary"
-		   dark
-		   class="mb-2"
-		   @click="saveJsonEn"
-		 >
-		   Pobierz JSON en
+		   Pobierz
 		 </v-btn>
         <v-dialog
           v-model="dialog"
@@ -113,6 +105,12 @@
 										<v-col cols="6">
 
 										<v-checkbox dense class="ma-0"
+											v-model="editedItem.pcg"
+											label="PCG"
+											color="green"
+										></v-checkbox>
+
+										<v-checkbox dense class="ma-0"
 											v-model="editedItem.swps"
 											label="SWPS"
 											color="green"
@@ -166,6 +164,53 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+				<v-dialog v-model="dialogSave" max-width="500px">
+          <v-card>
+            <v-card-title class="text-h5">Pobierz JSON</v-card-title>
+						<v-card-text >
+							<v-container>
+											Baza
+											<div v-for="(baseItem, index) in downloads.base" :key="'A'+index">
+												{{downloads.base[index].active}}
+												<v-checkbox dense class="ma-0"
+													v-model="downloads.base[index].active"
+													:label="downloads.base[index].text"
+													color="green"
+													@click="click(index)"
+												></v-checkbox>
+											</div>
+											Suplement
+											<div v-for="(supplementItem, index) in downloads.supplement" :key="'B'+index">{{downloads.supplement[index].active}}
+												<v-checkbox dense class="ma-0"
+													v-model="downloads.supplement[index].active"
+													:label="downloads.supplement[index].text"
+													color="green"
+												></v-checkbox>
+											</div>
+							</v-container>
+						</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+									<v-btn
+										color="secondary"
+										dark
+										class="mb-2"
+										@click="saveJson('pl')"
+									>
+										Pobierz JSON pl
+									</v-btn>
+									<v-btn
+										color="secondary"
+										dark
+										class="mb-2"
+										@click="saveJson('en')"
+									>
+										Pobierz JSON en
+									</v-btn>
+              <v-spacer></v-spacer>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-toolbar>
     </template>
 	
@@ -211,6 +256,11 @@
 				<template v-else-if="header.value ==  'dspace' ">
 					<v-checkbox dense class="ma-0" disabled
 						v-model="item.dspace"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'pcg' ">
+					<v-checkbox dense class="ma-0" disabled
+						v-model="item.pcg"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'swps' ">
@@ -267,10 +317,27 @@ export default {
 		api: ""
 	},
 	methods: {
-		saveJsonEn(){
-			let newJsonEn = this.listAll.map((item) => [item.id,item.en]  )
-			newJsonEn = Object.fromEntries(newJsonEn)
-			this.download('en.json5', JSON.stringify(newJsonEn))
+		click(index){
+			console.log(this.downloads.base[index].active)
+		},
+		saveModal(){
+			this.dialogSave = true
+		},
+		slicer( item, spaceNames ){
+			const pairs = Object.entries(item)
+			const filteredPairs = pairs.filter(x => (x[1]==true && spaceNames.some(y => y==x[0])))
+			//console.log('filteredPairs',filteredPairs)
+			//console.log(pairs)
+			if(filteredPairs.length === 0 )return false
+			else return true
+		},
+		saveJson(lang){
+			const spaces = [...this.downloads.base.filter(x=>x.active==true), ...this.downloads.supplement.filter(x=>x['active']==true)]
+			const spaceNames = spaces.map((x) => x.value)
+			const listSpaces = this.listAll.filter(x => (this.slicer(x, spaceNames)))
+			let newJson = listSpaces.map((item) => [item.id,item[lang]]  )
+			newJson = Object.fromEntries(newJson)
+			this.download('en.json5', JSON.stringify(newJson))
 		},
 		saveJsonPl(){
 			let newJsonPl = this.listAll.map((item) => [item.id,item.pl]  )
@@ -284,7 +351,7 @@ export default {
 
 			element.style.display = 'none';
 			document.body.appendChild(element);
-
+ 
 			element.click();
 
 			document.body.removeChild(element);
@@ -294,11 +361,13 @@ export default {
 		},
 		customSort(items, index, isDesc) {
 			items.sort((a, b) => {
+				if(index<10){}
+				//console.log(a)
 				if (a[index] == b[index]) { 
 					return 0;
-				} else if (a[index] == "") {
+				} else if (a[index] == "" || a[index] == null ) {
 					return 1;
-				} else if (b[index] == "") {
+				} else if (b[index] == "" || b[index] == null ) {
 					return -1;
 				} else if (!isDesc[0]) {
 					return a[index] < b[index] ? -1 : 1;
@@ -345,11 +414,13 @@ export default {
 			})
 		},
 		save () {
+			console.log(this.editedItem)
 			if (this.editedIndex > -1) {
 				Object.assign(this.listAll[this.editedIndex], this.editedItem)
 				axios.patch(`${this.api}/${this.editedItem.id}`, 
 					this.editedItem
 				)
+				console.log(this.editedItem)
 				this.close()
 			}
 			else{
@@ -372,9 +443,11 @@ export default {
 			
 	},
 	data: () => ({
+		clicks: true,
 		host: window.location.origin,
 		dialog: false,
-   		dialogDelete: false,
+		dialogDelete: false,
+		dialogSave: false,
 		validationColor: "initial",
 		isKeyLabelDisabled: false,
 		alert: "",
@@ -389,6 +462,7 @@ export default {
 			{text: 'Polski', value: 'pl'},
 			{text: 'DSpace', value: 'dspace'},
 			{text: 'Cris', value: 'cris'},
+			{text: 'PCG', value: 'pcg'},
 			{text: 'SWPS', value: 'swps'},
 			{text: 'ASP', value: 'asp'},
 			{text: 'UW', value: 'uw'},
@@ -404,10 +478,19 @@ export default {
 			pl: "",
 			dspace: true,
 			cris: true,
+			pcg: false,
 			swps: false,
 			asp: false,
 			uw: false
-
+		},
+		downloads: {
+			base: [
+				{value:'dspace', text:"DSpace", active:true},
+				{value:'cris', text:"Cris", active:true}
+			],
+			supplement: [
+				
+			]
 		},
 		defaultItem: {
 			id: '',
@@ -415,6 +498,7 @@ export default {
 			pl: "",
 			dspace: true,
 			cris: true,
+			pcg: false,
 			swps: false,
 			asp: false,
 			uw: false
@@ -425,6 +509,8 @@ export default {
 		const res = await axios.get(this.api)
 		this.listAll = res.data
 		//this.lastId = Number(this.listAll[this.listAll.length-1].id)
+		let arr = ['id', 'en', 'pl', 'dspace', 'cris', 'actions']
+		this.downloads.supplement=this.headers.filter(x => !arr.includes(x['value']))
 	}
 }
 </script>
