@@ -21,3 +21,11 @@ fetch(process.env.BASE_URL + "config.json")
 		render: h => h(App)
 	}).$mount('#app')
 })
+
+
+window.addEventListener('message', (e) => {
+  if (e.data && typeof e.data === 'string' && e.data.match(/webpackHotUpdate/)) {
+    console.log('hot reload happened')
+    console.clear()
+  }
+})

@@ -10,7 +10,7 @@ export default new Vuetify({
 		themes: {
 			dark: {
 				primary: {
-					base: "#08113B"
+					base: "#0871DB"
 				}
 			}
 		},

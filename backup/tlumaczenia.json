@@ -113,14 +113,14 @@
     {
       "id": "admin.registries.bitstream-formats.create.breadcrumbs",
       "en": "Bitstream format",
-      "pl": "Format plików",
+      "pl": "Format strumienia bitów",
       "dspace": true,
       "cris": true
     },
     {
       "id": "admin.registries.bitstream-formats.create.failure.content",
       "en": "An error occurred while creating the new bitstream format.",
-      "pl": "Wystąpił błąd podczas tworzenia nowego formatu plików.",
+      "pl": "Wystąpił błąd podczas tworzenia nowego formatu strumienia bitów.",
       "dspace": true,
       "cris": true
     },
@@ -148,7 +148,7 @@
     {
       "id": "admin.registries.bitstream-formats.create.success.content",
       "en": "The new bitstream format was successfully created.",
-      "pl": "Nowy format plików został pomyślnie utworzony.",
+      "pl": "Nowy format strumienia bitów został pomyślnie utworzony.",
       "dspace": true,
       "cris": true
     },
@@ -197,7 +197,7 @@
     {
       "id": "admin.registries.bitstream-formats.edit.breadcrumbs",
       "en": "Bitstream format",
-      "pl": "Format plików",
+      "pl": "Format strumienia bitów",
       "dspace": true,
       "cris": true
     },
@@ -302,7 +302,7 @@
     {
       "id": "admin.registries.bitstream-formats.edit.success.content",
       "en": "The bitstream format was successfully edited.",
-      "pl": "Format plików został pomyślnie edytowany.",
+      "pl": "Format strumienia bitów został pomyślnie edytowany.",
       "dspace": true,
       "cris": true
     },
@@ -1945,7 +1945,7 @@
     {
       "id": "bitstream.edit.form.fileName.hint",
       "en": "Change the filename for the bitstream. Note that this will change the display bitstream URL, but old links will still resolve as long as the sequence ID does not change.",
-      "pl": "Zmiana nazwy pliku. Zauważ, że zmieni to wyświetlany adres URL plików, ale stare linki nadal będą działać, o ile nie zmieni się identyfikator sekwencji.",
+      "pl": "Zmiana nazwy pliku dla strumienia bitów. Zauważ, że zmieni to wyświetlany adres URL strumienia bitów, ale stare linki nadal będą działać, o ile nie zmieni się identyfikator sekwencji.",
       "dspace": true,
       "cris": true
     },
@@ -3073,7 +3073,7 @@
       "id": "collection.listelement.badge",
       "en": "Collection",
       "pl": "Kolekcja",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
@@ -3591,9 +3591,8 @@
       "id": "community.listelement.badge",
       "en": "Community",
       "pl": "Zbiór",
-      "swps": false,
-      "cris": true,
-      "dspace": true
+      "swps": true,
+      "cris": false
     },
     {
       "id": "comcol-role.edit.no-group",
@@ -3690,22 +3689,19 @@
       "id": "comcol-role.edit.bitstream_read.name",
       "en": "Default bitstream read access",
       "pl": "Domyślny dostęp do oczytu plików",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "comcol-role.edit.bitstream_read.description",
       "en": "Community administrators can create sub-communities or collections, and manage or assign management for those sub-communities or collections. In addition, they decide who can submit items to any sub-collections, edit item metadata (after submission), and add (map) existing items from other collections (subject to authorization).",
       "pl": "Administratorzy zbiorów mogą tworzyć podzbiory lub kolekcje, a także zarządzać nimi. Ponadto decydują o tym, kto może przesyłać elementy do podkolekcji, edytować metadane pozycji (po ich przesłaniu) oraz dodawać (mapować) istniejące pozycje z innych kolekcji (pod warunkiem posiadania odpowiednich uprawnień).",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "comcol-role.edit.bitstream_read.anonymous-group",
       "en": "Default read for incoming bitstreams is currently set to Anonymous.",
       "pl": "Domyślny status odczytu dla nowych plików to Anonimowy.",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "comcol-role.edit.editor.name",
@@ -5220,7 +5216,7 @@
     {
       "id": "item.edit.authorizations.heading",
       "en": "With this editor you can view and alter the policies of an item, plus alter policies of individual item components: bundles and bitstreams. Briefly, an item is a container of bundles, and bundles are containers of bitstreams. Containers usually have ADD/REMOVE/READ/WRITE policies, while bitstreams only have READ/WRITE policies.",
-      "pl": "Za pomocą tego edytora możesz przeglądać i zmieniać polityki dla danej pozycji, a także zmieniać polityki dla poszczególnych części pozycji: paczek i plików. W skrócie, pozycja jest kontenerem pakietów, a pakiety są kontenerami plików. Kontenery zazwyczaj mają polityki ADD/REMOVE/READ/WRITE, natomiast pliki mają tylko polityki READ/WRITE.",
+      "pl": "Za pomocą tego edytora możesz przeglądać i zmieniać polityki dla danej pozycji, a także zmieniać polityki dla poszczególnych części pozycji: paczek i strumieni bitów. W skrócie, pozycja jest kontenerem pakietów, a pakiety są kontenerami strumieni bitów. Kontenery zazwyczaj mają polityki ADD/REMOVE/READ/WRITE, natomiast strumienie bitów mają tylko polityki READ/WRITE.",
       "dspace": true,
       "cris": true
     },
@@ -5269,7 +5265,7 @@
     {
       "id": "item.bitstreams.upload.bundles.empty",
       "en": "This item doesn't contain any bundles to upload a bitstream to.",
-      "pl": "Ta pozycja nie zawiera żadnych pakietów, do których można przesłać pliki.",
+      "pl": "Ta pozycja nie zawiera żadnych pakietów, do których można przesłać strumień bitów.",
       "dspace": true,
       "cris": true
     },
@@ -5318,7 +5314,7 @@
     {
       "id": "item.bitstreams.upload.title",
       "en": "Upload bitstream",
-      "pl": "Prześlij plik",
+      "pl": "Prześlij strumień bitów",
       "dspace": true,
       "cris": true
     },
@@ -5402,7 +5398,7 @@
     {
       "id": "item.edit.bitstreams.empty",
       "en": "This item doesn't contain any bitstreams. Click the upload button to create one.",
-      "pl": "Ta pozycja nie zawiera żadnych plików. Wybierz pliki do załadowania, aby je utworzyć.",
+      "pl": "Ta pozycja nie zawiera żadnych strumieni bitów. Wybierz strumienie do załadowania, aby je utworzyć.",
       "dspace": true,
       "cris": true
     },
@@ -6880,15 +6876,13 @@
       "id": "item.preview.dc.date.issued",
       "en": "Published date:",
       "pl": "Data publikacji:",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "item.preview.dc.description.abstract",
       "en": "Abstract:",
       "pl": "Abstrakt:",
-      "swps": false,
-      "dspace": true
+      "swps": true
     },
     {
       "id": "item.preview.dc.identifier.other",
@@ -6936,8 +6930,7 @@
       "id": "item.preview.dc.identifier",
       "en": "Identifier:",
       "pl": "Identyfikator:",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "item.preview.dc.relation.issn",
@@ -6999,8 +6992,7 @@
       "id": "item.preview.oaire.awardNumber",
       "en": "Funding ID:",
       "pl": "ID finansowania:",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "item.preview.dc.coverage.spatial",
@@ -8149,7 +8141,7 @@
     {
       "id": "menu.section.import_batch",
       "en": "Batch Import (ZIP)",
-      "pl": "Import masowy (ZIP)",
+      "pl": "Import spakowanych plików (ZIP)",
       "dspace": true,
       "cris": true
     },
@@ -8729,8 +8721,7 @@
       "id": "none.listelement.badge",
       "en": "Item",
       "pl": "Pozycja",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "person.listelement.badge",
@@ -10294,29 +10285,25 @@
       "id": "register-page.registration.email",
       "en": "Email Address *",
       "pl": "Adres e-mail *",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "register-page.registration.email.error.required",
       "en": "Please fill in an email address",
       "pl": "Wypełnij adres e-mail",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "register-page.registration.email.error.pattern",
       "en": "Please fill in a valid email address",
       "pl": "Wypełnij poprawny adres e-mail",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "register-page.registration.email.hint",
       "en": "This address will be verified and used as your login name.",
       "pl": "Ten adres e-mail będzie zweryfikowany i będziesz go używać jako swój login.",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "register-page.registration.submit",
@@ -10343,15 +10330,13 @@
       "id": "register-page.registration.error.head",
       "en": "Error when trying to register email",
       "pl": "Błąd podczas próby rejestracji adresu e-mail",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "register-page.registration.error.content",
       "en": "An error occured when registering the following email address: {{ email }}",
       "pl": "Błąd podczas próby rejestracji adresu e-mail: {{ email }}",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "relationships.add.error.relationship-type.content",
@@ -11791,14 +11776,14 @@
     {
       "id": "search.sidebar.settings.rpp",
       "en": "Results per page",
-      "pl": "Pokaż",
+      "pl": "Wyników na stronie",
       "dspace": true,
       "cris": true
     },
     {
       "id": "search.sidebar.settings.sort-by",
       "en": "Sort By",
-      "pl": "Sortuj",
+      "pl": "Sortuj według",
       "dspace": true,
       "cris": true
     },
@@ -12050,7 +12035,7 @@
     {
       "id": "submission.general.save-later",
       "en": "Save for later",
-      "pl": "Zapisz i wróć",
+      "pl": "Zapisz wersję roboczą",
       "dspace": true,
       "cris": true
     },
@@ -13213,8 +13198,7 @@
       "id": "submission.sections.describe.relationship-lookup.selection-tab.title.crossref",
       "en": "Search Results",
       "pl": "Wyniki wyszukiwania",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "submission.sections.describe.relationship-lookup.selection-tab.title.sherpaPublisher",
@@ -13780,8 +13764,7 @@
       "id": "submission.submit.breadcrumbs",
       "en": "New submission",
       "pl": "Nowe zgłoszenie",
-      "cris": true,
-      "dspace": true
+      "cris": true
     },
     {
       "id": "submission.submit.title",
@@ -16821,8 +16804,7 @@
     {
       "id": "statistics",
       "en": "Statistics",
-      "pl": "Statystyki",
-      "cris": true
+      "pl": "Statystyki"
     },
     {
       "id": "statistics.workflow.breadcrumbs",
@@ -17134,56 +17116,47 @@
     {
       "id": "metric-badges.scopusCitation",
       "en": "Scopus© Citations",
-      "pl": "Cytowania w Scopus©",
-      "cris": true
+      "pl": "Cytowania w Scopus©"
     },
     {
       "id": "metric-badges.scopus-author-citation-count",
       "en": "Scopus© Citations",
-      "pl": "Cytowania w Scopus©",
-      "cris": true
+      "pl": "Cytowania w Scopus©"
     },
     {
       "id": "metric-badges.scopus-author-coauthor-count",
       "en": "<span class=\"fa fa-users\" title=\"Scopus© Coauthors\">&nbsp;</span>",
-      "pl": "<span class=\"fa fa-users\" title=\"Współautorzy w Scopus©\">&nbsp;</span>",
-      "cris": true
+      "pl": "<span class=\"fa fa-users\" title=\"Współautorzy w Scopus©\">&nbsp;</span>"
     },
     {
       "id": "metric-badges.scopus-author-document-count",
       "en": "<span class=\"fa fa-book-open\" title=\"Scopus© Documents\">&nbsp;</span>",
-      "pl": "<span class=\"fa fa-book-open\" title=\"Dokumenty w Scopus©\">&nbsp;</span>",
-      "cris": true
+      "pl": "<span class=\"fa fa-book-open\" title=\"Dokumenty w Scopus©\">&nbsp;</span>"
     },
     {
       "id": "metric-badges.scopus-author-h-index",
       "en": "Scopus© H-Index",
-      "pl": "H-Index w Scopus©",
-      "cris": true
+      "pl": "H-Index w Scopus©"
     },
     {
       "id": "metric-badges.scopus-author-cited-count",
       "en": "Scopus© Cited By",
-      "pl": "Cytowany przez w Scopus©",
-      "cris": true
+      "pl": "Cytowany przez w Scopus©"
     },
     {
       "id": "metric-badges.wosCitation",
       "en": "WOS© Citations",
-      "pl": "Cytowania w WOS©",
-      "cris": true
+      "pl": "Cytowania w WOS©"
     },
     {
       "id": "metric-badges.view",
       "en": "<span class=\"fa fa-eye\" title=\"View\">&nbsp;</span>",
-      "pl": "<span class=\"fa fa-eye\" title=\"Widok\">&nbsp;</span>",
-      "cris": true
+      "pl": "<span class=\"fa fa-eye\" title=\"Widok\">&nbsp;</span>"
     },
     {
       "id": "metric-badges.download",
       "en": "<span class=\"fa fa-download\" title=\"Downloads\">&nbsp;</span>",
-      "pl": "<span class=\"fa fa-download\" title=\"Pobrania\">&nbsp;</span>",
-      "cris": true
+      "pl": "<span class=\"fa fa-download\" title=\"Pobrania\">&nbsp;</span>"
     },
     {
       "id": "mydspace.new-bulk-import",
@@ -17218,548 +17191,457 @@
     {
       "id": "openaire.broker.title",
       "en": "OpenAIRE Broker",
-      "pl": "Broker OpenAIRE",
-      "cris": true
+      "pl": "Broker OpenAIRE"
     },
     {
       "id": "openaire.broker.topics.description",
       "en": "Below you can see all the topics received from the subscriptions to OpenAIRE.",
-      "pl": "Poniżej wyświetlono wszystkie tematy, które otrzymano z subskrypcji OpenAIRE.",
-      "cris": true
+      "pl": "Poniżej wyświetlono wszystkie tematy, które otrzymano z subskrypcji OpenAIRE."
     },
     {
       "id": "openaire.broker.topics",
       "en": "Current Topics",
-      "pl": "Aktualne tematy",
-      "cris": true
+      "pl": "Aktualne tematy"
     },
     {
       "id": "openaire.broker.table.topic",
       "en": "Topic",
-      "pl": "Temat",
-      "cris": true
+      "pl": "Temat"
     },
     {
       "id": "openaire.broker.table.last-event",
       "en": "Last Event",
-      "pl": "Ostatnie wydarzenie",
-      "cris": true
+      "pl": "Ostatnie wydarzenie"
     },
     {
       "id": "openaire.broker.table.actions",
       "en": "Actions",
-      "pl": "Akcje",
-      "cris": true
+      "pl": "Akcje"
     },
     {
       "id": "openaire.broker.button.detail",
       "en": "Show details",
-      "pl": "Pokaż szczegóły",
-      "cris": true
+      "pl": "Pokaż szczegóły"
     },
     {
       "id": "openaire.broker.noTopics",
       "en": "No topics found.",
-      "pl": "Nie znaleziono tematów.",
-      "cris": true
+      "pl": "Nie znaleziono tematów."
     },
     {
       "id": "openaire.broker.topic.error.service.retrieve",
       "en": "An error occurred while loading the OpenAIRE Broker topics",
-      "pl": "Wystąpił błą podczas ładowania tematów OpenAIRE Broker",
-      "cris": true
+      "pl": "Wystąpił błą podczas ładowania tematów OpenAIRE Broker"
     },
     {
       "id": "openaire.broker.loading",
       "en": "Loading ...",
-      "pl": "Ładowanie ...",
-      "cris": true
+      "pl": "Ładowanie ..."
     },
     {
       "id": "openaire.events.title",
       "en": "OpenAIRE Broker Suggestions",
-      "pl": "Sugestie OpenAIRE Broker",
-      "cris": true
+      "pl": "Sugestie OpenAIRE Broker"
     },
     {
       "id": "openaire.broker.events.description",
       "en": "Below the list of all the suggestions, received from OpenAIRE, for the selected topic.",
-      "pl": "Poniżej znajduje się lista wszystkich sugestii dla wybranego tematu otrzymanych z OpenAIRE.",
-      "cris": true
+      "pl": "Poniżej znajduje się lista wszystkich sugestii dla wybranego tematu otrzymanych z OpenAIRE."
     },
     {
       "id": "openaire.broker.events.topic",
       "en": "Topic:",
-      "pl": "Temat:",
-      "cris": true
+      "pl": "Temat:"
     },
     {
       "id": "openaire.broker.noEvents",
       "en": "No suggestions found.",
-      "pl": "Nie znaleziono sugestii.",
-      "cris": true
+      "pl": "Nie znaleziono sugestii."
     },
     {
       "id": "openaire.broker.event.table.trust",
       "en": "Trust",
-      "pl": "Zaufanie",
-      "cris": true
+      "pl": "Zaufanie"
     },
     {
       "id": "openaire.broker.event.table.publication",
       "en": "Publication",
-      "pl": "Publikacja",
-      "cris": true
+      "pl": "Publikacja"
     },
     {
       "id": "openaire.broker.event.table.details",
       "en": "Details",
-      "pl": "Szczegóły",
-      "cris": true
+      "pl": "Szczegóły"
     },
     {
       "id": "openaire.broker.event.table.project-details",
       "en": "Project details",
-      "pl": "Szczegóły projektu",
-      "cris": true
+      "pl": "Szczegóły projektu"
     },
     {
       "id": "openaire.broker.event.table.actions",
       "en": "Actions",
-      "pl": "Akcje",
-      "cris": true
+      "pl": "Akcje"
     },
     {
       "id": "openaire.broker.event.action.accept",
       "en": "Accept suggestion",
-      "pl": "Zaakceptuj sugestię",
-      "cris": true
+      "pl": "Zaakceptuj sugestię"
     },
     {
       "id": "openaire.broker.event.action.ignore",
       "en": "Ignore suggestion",
-      "pl": "Ignoruj sugestię",
-      "cris": true
+      "pl": "Ignoruj sugestię"
     },
     {
       "id": "openaire.broker.event.action.reject",
       "en": "Reject suggestion",
-      "pl": "Odrzuć sugestię",
-      "cris": true
+      "pl": "Odrzuć sugestię"
     },
     {
       "id": "openaire.broker.event.action.import",
       "en": "Import project and accept suggestion",
-      "pl": "Importuj projekt i zaakceptuj sugestię",
-      "cris": true
+      "pl": "Importuj projekt i zaakceptuj sugestię"
     },
     {
       "id": "openaire.broker.event.table.pidtype",
       "en": "PID Type:",
-      "pl": "Typ PID:",
-      "cris": true
+      "pl": "Typ PID:"
     },
     {
       "id": "openaire.broker.event.table.pidvalue",
       "en": "PID Value:",
-      "pl": "Wartość PID:",
-      "cris": true
+      "pl": "Wartość PID:"
     },
     {
       "id": "openaire.broker.event.table.subjectValue",
       "en": "Subject Value:",
-      "pl": "Wartość tematu:",
-      "cris": true
+      "pl": "Wartość tematu:"
     },
     {
       "id": "openaire.broker.event.table.abstract",
       "en": "Abstract:",
-      "pl": "Abstrakt:",
-      "cris": true
+      "pl": "Abstrakt:"
     },
     {
       "id": "openaire.broker.event.table.suggestedProject",
       "en": "OpenAIRE Suggested Project data",
-      "pl": "Dane sugerowanego projektu OpenAIRE",
-      "cris": true
+      "pl": "Dane sugerowanego projektu OpenAIRE"
     },
     {
       "id": "openaire.broker.event.table.project",
       "en": "Project title:",
-      "pl": "Tytuł projektu:",
-      "cris": true
+      "pl": "Tytuł projektu:"
     },
     {
       "id": "openaire.broker.event.table.acronym",
       "en": "Acronym:",
-      "pl": "Akronim:",
-      "cris": true
+      "pl": "Akronim:"
     },
     {
       "id": "openaire.broker.event.table.code",
       "en": "Code:",
-      "pl": "Kod:",
-      "cris": true
+      "pl": "Kod:"
     },
     {
       "id": "openaire.broker.event.table.funder",
       "en": "Funder:",
-      "pl": "Finansowanie:",
-      "cris": true
+      "pl": "Finansowanie:"
     },
     {
       "id": "openaire.broker.event.table.fundingProgram",
       "en": "Funding program:",
-      "pl": "Program finansujący:",
-      "cris": true
+      "pl": "Program finansujący:"
     },
     {
       "id": "openaire.broker.event.table.jurisdiction",
       "en": "Jurisdiction:",
-      "pl": "Jurysdykcja:",
-      "cris": true
+      "pl": "Jurysdykcja:"
     },
     {
       "id": "openaire.broker.events.back",
       "en": "Back to topics",
-      "pl": "Powrót do tematów",
-      "cris": true
+      "pl": "Powrót do tematów"
     },
     {
       "id": "openaire.broker.event.table.less",
       "en": "Show less",
-      "pl": "Pokaż mniej",
-      "cris": true
+      "pl": "Pokaż mniej"
     },
     {
       "id": "openaire.broker.event.table.more",
       "en": "Show more",
-      "pl": "Pokaż więcej",
-      "cris": true
+      "pl": "Pokaż więcej"
     },
     {
       "id": "openaire.broker.event.project.found",
       "en": "Bound to the local record:",
-      "pl": "Przywiąż z lokalną pozycją:",
-      "cris": true
+      "pl": "Przywiąż z lokalną pozycją:"
     },
     {
       "id": "openaire.broker.event.project.notFound",
       "en": "No local record found",
-      "pl": "Nie znaleziono lokalnej pozycji",
-      "cris": true
+      "pl": "Nie znaleziono lokalnej pozycji"
     },
     {
       "id": "openaire.broker.event.sure",
       "en": "Are you sure?",
-      "pl": "Czy na pewno?",
-      "cris": true
+      "pl": "Czy na pewno?"
     },
     {
       "id": "openaire.broker.event.ignore.description",
       "en": "This operation can't be undone. Ignore this suggestion?",
-      "pl": "To operacja nie może zostać cofnięta. Czy na pewno zignorować sugestię?",
-      "cris": true
+      "pl": "To operacja nie może zostać cofnięta. Czy na pewno zignorować sugestię?"
     },
     {
       "id": "openaire.broker.event.reject.description",
       "en": "This operation can't be undone. Reject this suggestion?",
-      "pl": "To operacja nie może zostać cofnięta. Czy na pewno odrzucić sugestię?",
-      "cris": true
+      "pl": "To operacja nie może zostać cofnięta. Czy na pewno odrzucić sugestię?"
     },
     {
       "id": "openaire.broker.event.accept.description",
       "en": "No DSpace project selected. A new project will be created based on the suggestion data.",
-      "pl": "Nie wybrano projektu DSpace. Nowy projekt będzie utworzony na podstawie sugerowanych danych.",
-      "cris": true
+      "pl": "Nie wybrano projektu DSpace. Nowy projekt będzie utworzony na podstawie sugerowanych danych."
     },
     {
       "id": "openaire.broker.event.action.cancel",
       "en": "Cancel",
-      "pl": "Anuluj",
-      "cris": true
+      "pl": "Anuluj"
     },
     {
       "id": "openaire.broker.event.action.saved",
       "en": "Your decision has been saved successfully.",
-      "pl": "Twoja decyzja została zapisana.",
-      "cris": true
+      "pl": "Twoja decyzja została zapisana."
     },
     {
       "id": "openaire.broker.event.action.error",
       "en": "An error has occurred. Your decision has not been saved.",
-      "pl": "Wystąpił błąd. Twoja decyzja nie została zapisana.",
-      "cris": true
+      "pl": "Wystąpił błąd. Twoja decyzja nie została zapisana."
     },
     {
       "id": "openaire.broker.event.modal.project.title",
       "en": "Choose a project to bound",
-      "pl": "Wybierz projekt do przypisania",
-      "cris": true
+      "pl": "Wybierz projekt do przypisania"
     },
     {
       "id": "openaire.broker.event.modal.project.publication",
       "en": "Publication:",
-      "pl": "Publikacja:",
-      "cris": true
+      "pl": "Publikacja:"
     },
     {
       "id": "openaire.broker.event.modal.project.bountToLocal",
       "en": "Bound to the local record:",
-      "pl": "Powiąż z lokalnym rekordem:",
-      "cris": true
+      "pl": "Powiąż z lokalnym rekordem:"
     },
     {
       "id": "openaire.broker.event.modal.project.select",
       "en": "Project search",
-      "pl": "Wyszukaj projekt",
-      "cris": true
+      "pl": "Wyszukaj projekt"
     },
     {
       "id": "openaire.broker.event.modal.project.search",
       "en": "Search",
-      "pl": "Wyszukaj",
-      "cris": true
+      "pl": "Wyszukaj"
     },
     {
       "id": "openaire.broker.event.modal.project.clear",
       "en": "Clear",
-      "pl": "Wyczyść",
-      "cris": true
+      "pl": "Wyczyść"
     },
     {
       "id": "openaire.broker.event.modal.project.cancel",
       "en": "Cancel",
-      "pl": "Anuluj",
-      "cris": true
+      "pl": "Anuluj"
     },
     {
       "id": "openaire.broker.event.modal.project.bound",
       "en": "Bound project",
-      "pl": "Powiąż projekt",
-      "cris": true
+      "pl": "Powiąż projekt"
     },
     {
       "id": "openaire.broker.event.modal.project.placeholder",
       "en": "Enter a project name",
-      "pl": "Wpisz nazwę projektu",
-      "cris": true
+      "pl": "Wpisz nazwę projektu"
     },
     {
       "id": "openaire.broker.event.modal.project.notFound",
       "en": "No project found.",
-      "pl": "Nie znaleziono projektu.",
-      "cris": true
+      "pl": "Nie znaleziono projektu."
     },
     {
       "id": "openaire.broker.event.project.bounded",
       "en": "The project has been linked successfully.",
-      "pl": "Projekt został powiązany.",
-      "cris": true
+      "pl": "Projekt został powiązany."
     },
     {
       "id": "openaire.broker.event.project.removed",
       "en": "The project has been successfully unlinked.",
-      "pl": "Powiązanie projektu zostało usunięte.",
-      "cris": true
+      "pl": "Powiązanie projektu zostało usunięte."
     },
     {
       "id": "openaire.broker.event.project.error",
       "en": "An error has occurred. No operation performed.",
-      "pl": "Wystąpił błąd. Operacja nie została wykonana.",
-      "cris": true
+      "pl": "Wystąpił błąd. Operacja nie została wykonana."
     },
     {
       "id": "openaire.broker.event.reason",
       "en": "Reason",
-      "pl": "Powód",
-      "cris": true
+      "pl": "Powód"
     },
     {
       "id": "reciter.suggestion.loading",
       "en": "Loading ...",
-      "pl": "ładowanie...",
-      "cris": true
+      "pl": "ładowanie..."
     },
     {
       "id": "reciter.suggestion.title",
       "en": "Suggestions",
-      "pl": "Sugestie",
-      "cris": true
+      "pl": "Sugestie"
     },
     {
       "id": "reciter.suggestion.targets.description",
       "en": "Below you can see all the suggestions ",
-      "pl": "Poniżej możesz zobaczyć wszystkie sugestie",
-      "cris": true
+      "pl": "Poniżej możesz zobaczyć wszystkie sugestie"
     },
     {
       "id": "reciter.suggestion.targets",
       "en": "Current Suggestions",
-      "pl": "Aktualne sugestie",
-      "cris": true
+      "pl": "Aktualne sugestie"
     },
     {
       "id": "reciter.suggestion.table.name",
       "en": "Researcher Name",
-      "pl": "Nazwa naukowca",
-      "cris": true
+      "pl": "Nazwa naukowca"
     },
     {
       "id": "reciter.suggestion.table.actions",
       "en": "Actions",
-      "pl": "Akcje",
-      "cris": true
+      "pl": "Akcje"
     },
     {
       "id": "reciter.suggestion.button.review",
       "en": "Review {{ total }} suggestion(s)",
-      "pl": "Przejrzano {{ total }} sugestii",
-      "cris": true
+      "pl": "Przejrzano {{ total }} sugestii"
     },
     {
       "id": "reciter.suggestion.noTargets",
       "en": "No target found.",
-      "pl": "Nie znaleziono destynacji.",
-      "cris": true
+      "pl": "Nie znaleziono destynacji."
     },
     {
       "id": "reciter.suggestion.target.error.service.retrieve",
       "en": "An error occurred while loading the Suggestion targets",
-      "pl": "Wystąpił błąd poczas ładowania destynacji sugestii",
-      "cris": true
+      "pl": "Wystąpił błąd poczas ładowania destynacji sugestii"
     },
     {
       "id": "reciter.suggestion.evidence.type",
       "en": "Type",
-      "pl": "Typ",
-      "cris": true
+      "pl": "Typ"
     },
     {
       "id": "reciter.suggestion.evidence.score",
       "en": "Score",
-      "pl": "Wynik",
-      "cris": true
+      "pl": "Wynik"
     },
     {
       "id": "reciter.suggestion.evidence.notes",
       "en": "Notes",
-      "pl": "Notatki",
-      "cris": true
+      "pl": "Notatki"
     },
     {
       "id": "reciter.suggestion.approveAndImport",
       "en": "Approve & import",
-      "pl": "Zatwierdzanie i importowanie",
-      "cris": true
+      "pl": "Zatwierdzanie i importowanie"
     },
     {
       "id": "reciter.suggestion.approveAndImport.success",
       "en": "The suggestion has been imported successfully. <a href='/workspaceitems/{{workspaceItemId}}/edit'>View.</a>",
-      "pl": "Sugestia został zaimportowana. <a href='/workspaceitems/{{workspaceItemId}}/edit'>View.</a>",
-      "cris": true
+      "pl": "Sugestia został zaimportowana. <a href='/workspaceitems/{{workspaceItemId}}/edit'>View.</a>"
     },
     {
       "id": "reciter.suggestion.approveAndImport.bulk",
       "en": "Approve & import Selected",
-      "pl": "Wybrano zatwierdzanie i importowanie",
-      "cris": true
+      "pl": "Wybrano zatwierdzanie i importowanie"
     },
     {
       "id": "reciter.suggestion.approveAndImport.bulk.success",
       "en": "{{ count }} suggestions have been imported successfully ",
-      "pl": "{{ count }} sugestii zostało zaimportowane. ",
-      "cris": true
+      "pl": "{{ count }} sugestii zostało zaimportowane. "
     },
     {
       "id": "reciter.suggestion.approveAndImport.bulk.error",
       "en": "{{ count }} suggestions haven't been imported due to unexpected server errors",
-      "pl": "{{ count }} sugestii nie zostało zaimportowano w wyniku błędu.",
-      "cris": true
+      "pl": "{{ count }} sugestii nie zostało zaimportowano w wyniku błędu."
     },
     {
       "id": "reciter.suggestion.notMine",
       "en": "Not mine",
-      "pl": "Nie moje",
-      "cris": true
+      "pl": "Nie moje"
     },
     {
       "id": "reciter.suggestion.notMine.success",
       "en": "The suggestion has been discarded",
-      "pl": "Sugestie zostały odrzucone",
-      "cris": true
+      "pl": "Sugestie zostały odrzucone"
     },
     {
       "id": "reciter.suggestion.notMine.bulk",
       "en": "Not mine Selected",
-      "pl": "Wybrano nie moje",
-      "cris": true
+      "pl": "Wybrano nie moje"
     },
     {
       "id": "reciter.suggestion.notMine.bulk.success",
       "en": "{{ count }} suggestions have been discarded ",
-      "pl": "{{ count }} sugestii zostało odrzuconych",
-      "cris": true
+      "pl": "{{ count }} sugestii zostało odrzuconych"
     },
     {
       "id": "reciter.suggestion.notMine.bulk.error",
       "en": "{{ count }} suggestions haven't been discarded due to unexpected server errors",
-      "pl": "{{ count }} sugestii nie zostało odrzuconych z powodu niespodziewanego błędu serwera",
-      "cris": true
+      "pl": "{{ count }} sugestii nie zostało odrzuconych z powodu niespodziewanego błędu serwera"
     },
     {
       "id": "reciter.suggestion.empty",
       "en": "All the <b>{{type}}</b> suggestions in the {{source}}<br> related to your profile have been either approved or rejected.",
-      "pl": "Wszystkie sugestie <b>{{type}}</b> w {{source}}<br> odnoszące się do Twojego profilu zostały zaakceptowane lub odrzucone.",
-      "cris": true
+      "pl": "Wszystkie sugestie <b>{{type}}</b> w {{source}}<br> odnoszące się do Twojego profilu zostały zaakceptowane lub odrzucone."
     },
     {
       "id": "reciter.suggestion.seeEvidence",
       "en": "See evidence",
-      "pl": "Pokaż dowody",
-      "cris": true
+      "pl": "Pokaż dowody"
     },
     {
       "id": "reciter.suggestion.hideEvidence",
       "en": "Hide evidence",
-      "pl": "Ukryj dowody",
-      "cris": true
+      "pl": "Ukry dowody"
     },
     {
       "id": "reciter.suggestion.suggestionFor",
       "en": "Suggestion for",
-      "pl": "Sugestia dla",
-      "cris": true
+      "pl": "Sugestia dla"
     },
     {
       "id": "reciter.suggestion.source.oaire",
       "en": "OpenAIRE Graph",
-      "pl": "Wykres OpenAIRE",
-      "cris": true
+      "pl": "Wykres OpenAIRE"
     },
     {
       "id": "reciter.suggestion.source.orcidWorks",
       "en": "ORCID registry",
-      "pl": "Rejestr ORCID",
-      "cris": true
+      "pl": "Rejestr ORCID"
     },
     {
       "id": "reciter.suggestion.from.source",
       "en": "from the ",
-      "pl": "z ",
-      "cris": true
+      "pl": "z "
     },
     {
       "id": "reciter.suggestion.totalScore",
       "en": "Total Score",
-      "pl": "Wynik całkowity",
-      "cris": true
+      "pl": "Wynik całkowity"
     },
     {
       "id": "reciter.suggestion.type.oaire",
       "en": "Publications",
-      "pl": "Publikacje",
-      "cris": true
+      "pl": "Publikacje"
     },
     {
       "id": "person.page.orcid.sync-queue.description",
@@ -17920,14 +17802,12 @@
     {
       "id": "patent.listelement.badge",
       "en": "Patent",
-      "pl": "Patent",
-      "cris": true
+      "pl": "Patent"
     },
     {
       "id": "product.listelement.badge",
       "en": "Product",
-      "pl": "Produkt",
-      "cris": true
+      "pl": "Produkt"
     },
     {
       "id": "register-page.create-profile.end-user-agreement.accept.text",
@@ -18250,20 +18130,17 @@
     {
       "id": "project_funding.search.results.head",
       "en": "Projects Search Results",
-      "pl": "Wyniki wyszukiwania projektów",
-      "cris": true
+      "pl": "Wyniki wyszukiwania projektów"
     },
     {
       "id": "researchoutputs.search.results.head",
       "en": "Publications Search Results",
-      "pl": "Wyniki wyszukiwania publikacji",
-      "cris": true
+      "pl": "Wyniki wyszukiwania publikacji"
     },
     {
       "id": "orgunit.search.results.head",
       "en": "Organizations Search Results",
-      "pl": "Wyniki wyszukiwania jednostek organizacyjnych",
-      "cris": true
+      "pl": "Wyniki wyszukiwania jednostek organizacyjnych"
     },
     {
       "id": "sorting.ownerselection.ASC",
@@ -18737,70 +18614,70 @@
       "id": "submission.sections.submit.progressbar.describe.equipment",
       "en": "Equipment basic information",
       "pl": "Podstawowe informacje o aparaturze badawczej",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.event",
       "en": "Event basic information",
       "pl": "Podstawowe informacje o wydarzeniu",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.funding",
       "en": "Funding basic information",
       "pl": "Podstawowe informacje o finansowaniu",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.journal",
       "en": "Journal basic information",
       "pl": "Podstawowe informacje o czasopiśmie",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.orgunit",
       "en": "Org Unit basic information",
       "pl": "Podstawowe informacje o jednostce organizacyjnej",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.owner",
       "en": "Owner",
       "pl": "Właściciel",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.patent",
       "en": "Patent basic information",
       "pl": "Podstawowe informacje o patencie",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.patent_indexing",
       "en": "Patent indexing",
       "pl": "Indeksowanie patentu",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.patent_references",
       "en": "Patent references",
       "pl": "Powiązania patentu",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
       "id": "submission.sections.submit.progressbar.describe.person",
       "en": "Person basic information",
       "pl": "Podstawowe informacje o osobie",
-      "dspace": false,
+      "dspace": true,
       "cris": true
     },
     {
@@ -18860,122 +18737,102 @@
     {
       "id": "subscriptions.title",
       "en": "Subscriptions",
-      "pl": "Subskrypcje",
-      "cris": true
+      "pl": "Subskrypcje"
     },
     {
       "id": "subscriptions.item",
       "en": "Subscriptions for items",
-      "pl": "Subskrypcje pozycji",
-      "cris": true
+      "pl": "Subskrypcje pozycji"
     },
     {
       "id": "subscriptions.collection",
       "en": "Subscriptions for collections",
-      "pl": "Subskrypcje kolekcji",
-      "cris": true
+      "pl": "Subskrypcje kolekcji"
     },
     {
       "id": "subscriptions.community",
       "en": "Subscriptions for communities",
-      "pl": "Subskrypcje zbiorów",
-      "cris": true
+      "pl": "Subskrypcje zbiorów"
     },
     {
       "id": "subscriptions.subscription_type",
       "en": "Subscription type",
-      "pl": "Typ subskrypcji",
-      "cris": true
+      "pl": "Typ subskrypcji"
     },
     {
       "id": "subscriptions.frequency",
       "en": "Subscription frequency",
-      "pl": "Częstotliwość subskrypcji",
-      "cris": true
+      "pl": "Częstotliwość subskrypcji"
     },
     {
       "id": "subscriptions.frequency.D",
       "en": "Daily",
-      "pl": "dziennie",
-      "cris": true
+      "pl": "dziennie"
     },
     {
       "id": "subscriptions.frequency.M",
       "en": "Monthly",
-      "pl": "miesięcznie",
-      "cris": true
+      "pl": "miesięcznie"
     },
     {
       "id": "subscriptions.frequency.W",
       "en": "Weekly",
-      "pl": "tygodniowo",
-      "cris": true
+      "pl": "tygodniowo"
     },
     {
       "id": "subscriptions.table.dso",
       "en": "Subject",
-      "pl": "Typ",
-      "cris": true
+      "pl": "Typ"
     },
     {
       "id": "subscriptions.table.subscription_type",
       "en": "Subscription Type",
-      "pl": "Typ subskrypcji",
-      "cris": true
+      "pl": "Typ subskrypcji"
     },
     {
       "id": "subscriptions.table.subscription_frequency",
       "en": "Subscription Frequency",
-      "pl": "Częstotliwość subskrypcji",
-      "cris": true
+      "pl": "Częstotliwość subskrypcji"
     },
     {
       "id": "subscriptions.table.action",
       "en": "Action",
-      "pl": "Akcja",
-      "cris": true
+      "pl": "Akcja"
     },
     {
       "id": "subscriptions.table.empty.message",
       "en": "You have not subscribed any notification yet. To subscribe notification about an object please use the contextual menu in the object detail view",
-      "pl": "Nie masz w tej chwili żadnych powiadomień. Aby włączyć powiadomienia, użyj menu kontekstowego w widoku szczegółów pozycji",
-      "cris": true
+      "pl": "Nie masz w tej chwili żadnych powiadomień. Aby włączyć powiadomienia, użyj menu kontekstowego w widoku szczegółów pozycji"
     },
     {
       "id": "tree.description.srsc",
       "en": "Research Subject Categories",
-      "pl": "Kategorie tematu badań naukowych",
-      "cris": true
+      "pl": "Kategorie tematu badań naukowych"
     },
     {
       "id": "treeview.header",
       "en": "Hierarchical tree view",
-      "pl": "Widok drzewka",
-      "cris": true
+      "pl": "Widok drzewka"
     },
     {
       "id": "treeview.search.form.reset",
       "en": "Reset",
-      "pl": "Resetuj",
-      "cris": true
+      "pl": "Resetuj"
     },
     {
       "id": "treeview.search.form.search",
       "en": "Search",
-      "pl": "Szukaj",
-      "cris": true
+      "pl": "Szukaj"
     },
     {
       "id": "treeview.search.no-result",
       "en": "There were no items to show",
-      "pl": "Brak pozycji do wyświetlenia.",
-      "cris": true
+      "pl": "Brak pozycji do wyświetlenia."
     },
     {
       "id": "treeview.load-more",
       "en": "Load more",
-      "pl": "Załaduj więcej",
-      "cris": true
+      "pl": "Załaduj więcej"
     },
     {
       "id": "vocabulary.import-external.preview.title.Product",
@@ -19076,14 +18933,12 @@
     {
       "id": "relation.rp.researchoutputs.search.results.head",
       "en": "Related Publications",
-      "pl": "Powiązane publikacje",
-      "cris": true
+      "pl": "Powiązane publikacje"
     },
     {
       "id": "relation.rp.projects.search.results.head",
       "en": "Related Projects",
-      "pl": "Powiązane projekty",
-      "cris": true
+      "pl": "Powiązane projekty"
     },
     {
       "id": "layout.i18n.link.default",
@@ -19094,8 +18949,7 @@
     {
       "id": "orcid.badge.tooltip",
       "en": "Connected to ORCID",
-      "pl": "Połącz z ORCID",
-      "cris": true
+      "pl": "Połącz z ORCID"
     },
     {
       "id": "lucky.search.results.notfound",
@@ -19148,188 +19002,157 @@
     {
       "id": "homepage.publications",
       "en": "publications",
-      "pl": "publikacje",
-      "pcg": true
+      "pl": "publikacje"
     },
     {
       "id": "homepage.people",
       "en": "people",
-      "pl": "osoby",
-      "pcg": true
+      "pl": "osoby"
     },
     {
       "id": "homepage.topsearched",
       "en": "Top searched phrases",
-      "pl": "Najczęściej wyszukiwane frazy",
-      "pcg": true
+      "pl": "Najczęściej wyszukiwane frazy"
     },
     {
       "id": "homepage.showmore",
       "en": "Show more",
-      "pl": "Pokaż więcej",
-      "pcg": true
+      "pl": "Pokaż więcej"
     },
     {
       "id": "homepage.keywords",
       "en": "Keywords",
-      "pl": "Słowa kluczowe",
-      "pcg": true
+      "pl": "Słowa kluczowe"
     },
     {
       "id": "homepage.login",
       "en": "Log in",
-      "pl": "Zaloguj",
-      "pcg": true
+      "pl": "Zaloguj"
     },
     {
       "id": "homepage.projects",
       "en": "projects",
-      "pl": "projektów",
-      "pcg": true
+      "pl": "projektów"
     },
     {
       "id": "homepage.units",
       "en": "units",
-      "pl": "jednostek",
-      "pcg": true
+      "pl": "jednostek"
     },
     {
       "id": "homepage.patents",
       "en": "patents",
-      "pl": "patentów",
-      "pcg": true
+      "pl": "patentów"
     },
     {
       "id": "homepage.collections.phd",
       "en": "PhD dissertations",
-      "pl": "Rozprawy doktorskie",
-      "pcg": true
+      "pl": "Rozprawy doktorskie"
     },
     {
       "id": "homepage.collections.biblio",
       "en": "Bibliography of publications",
-      "pl": "Bibliografia Publikacji Uniwersytetu",
-      "pcg": true
+      "pl": "Bibliografia Publikacji Uniwersytetu"
     },
     {
       "id": "homepage.collections.legal",
       "en": "Legal documents",
-      "pl": "Akty prawne Uniwersytetu",
-      "pcg": true
+      "pl": "Akty prawne Uniwersytetu"
     },
     {
       "id": "homepage.collections.impaired",
       "en": "Facilities for the visually impaired",
-      "pl": "Adaptacje dla osób z niepełnosprawnością",
-      "pcg": true
+      "pl": "Adaptacje dla osób z niepełnosprawnością"
     },
     {
       "id": "homepage.collections.ethics",
       "en": "Interdysciplinary Center of Ethics",
-      "pl": "Interdyscyplinarne Centrum Etyki",
-      "pcg": true
+      "pl": "Interdyscyplinarne Centrum Etyki"
     },
     {
       "id": "homepage.collections.editorial",
       "en": "Editorial Project of BJ",
-      "pl": "Projekt wydawniczy BJ",
-      "pcg": true
+      "pl": "Projekt wydawniczy BJ"
     },
     {
       "id": "homepage.disciplines",
       "en": "all disciplines",
-      "pl": "wszystkie discypliny",
-      "pcg": true
+      "pl": "wszystkie discypliny"
     },
     {
       "id": "homepage.disciplines.it",
       "en": "computer and information sciences",
-      "pl": "informatyka",
-      "pcg": true
+      "pl": "informatyka"
     },
     {
       "id": "homepage.disciplines.math",
       "en": "mathematics",
-      "pl": "matematyka",
-      "pcg": true
+      "pl": "matematyka"
     },
     {
       "id": "homepage.disciplines.bio",
       "en": "biological sciences",
-      "pl": "nauki biologiczne",
-      "pcg": true
+      "pl": "nauki biologiczne"
     },
     {
       "id": "homepage.disciplines.chem",
       "en": "chemical sciences",
-      "pl": "nauki chemiczne",
-      "pcg": true
+      "pl": "nauki chemiczne"
     },
     {
       "id": "homepage.disciplines.phys",
       "en": "physical sciences",
-      "pl": "nauki fizyczne",
-      "pcg": true
+      "pl": "nauki fizyczne"
     },
     {
       "id": "homepage.disciplines.med",
       "en": "medical sciences",
-      "pl": "nauki medyczne",
-      "pcg": true
+      "pl": "nauki medyczne"
     },
     {
       "id": "homepage.resources",
       "en": "Scientific resources",
-      "pl": "Źródła naukowe",
-      "pcg": true
+      "pl": "Źródła naukowe"
     },
     {
       "id": "homepage.scientists",
       "en": "Scientists",
-      "pl": "Naukowcy",
-      "pcg": true
+      "pl": "Naukowcy"
     },
     {
       "id": "homepage.resources.publication",
       "en": "Publication",
-      "pl": "Publikacja",
-      "pcg": true
+      "pl": "Publikacja"
     },
     {
       "id": "homepage.resources.editorial",
       "en": "Editorial project",
-      "pl": "Projekt wydawniczy",
-      "pcg": true
+      "pl": "Projekt wydawniczy"
     },
     {
       "id": "homepage.metrics.downloads",
       "en": "Downloads",
-      "pl": "Pobrania",
-      "pcg": true
+      "pl": "Pobrania"
     },
     {
       "id": "homepage.metrics.views",
       "en": "Views",
-      "pl": "Wyświetlenia",
-      "pcg": true
+      "pl": "Wyświetlenia"
     },
     {
       "id": "homepage.scientist.resources",
       "en": "Resources",
-      "pl": "Zasoby",
-      "pcg": true
+      "pl": "Zasoby"
     },
     {
       "id": "homepage.resourcesadded",
       "en": "Resources added",
-      "pl": "Dodane zasoby",
-      "pcg": true
+      "pl": "Dodane zasoby"
     },
     {
       "id": "homepage.activity",
       "en": "Users activity",
-      "pl": "Aktywność użytkowników",
-      "pcg": true
+      "pl": "Aktywność użytkowników"
     },
     {
       "id": "item-export.form.title",
@@ -20110,9 +19933,7 @@
     {
       "id": "project-relationships.search.results.head",
       "en": "Project Search Results",
-      "pl": "Wyniki wyszukiwania projektów",
-      "dspace": true,
-      "cris": true
+      "pl": "Wyniki wyszukiwania projektów"
     },
     {
       "id": "publication-relationships.search.results.head",
@@ -22038,8 +21859,7 @@
     {
       "id": "homepage.recent",
       "en": "Recent",
-      "pl": "Najnowsze",
-      "pcg": true
+      "pl": "Najnowsze"
     },
     {
       "id": "statistics.table.mainReports.title.TopItems",
@@ -22050,254 +21870,212 @@
     {
       "id": "submissions.sections.form.dc.title.label",
       "en": "Title",
-      "pl": "Tytuł",
-      "swps": true
+      "pl": "Tytuł"
     },
     {
       "id": "submissions.sections.form.dc.title.required",
       "en": "Title is required",
-      "pl": "Tytuł jest wymagany",
-      "swps": true
+      "pl": "Tytuł jest wymagany"
     },
     {
       "id": "submissions.sections.form.dc.title.hint",
       "en": "Enter the publication's title",
-      "pl": "Wpisz tutaj tytuł publikacji",
-      "swps": true
+      "pl": "Wpisz tutaj tytuł publikacji"
     },
     {
       "id": "submissions.sections.form.dc.title.alternative.label",
       "en": "Alternative Title",
-      "pl": "Inny tytuł",
-      "swps": true
+      "pl": "Inny tytuł"
     },
     {
       "id": "submissions.sections.form.dc.title.alternative.hint",
       "en": " Enter the publication's alternative title",
-      "pl": "Wprowadź alternatywny tytuł, np. w innym języku",
-      "swps": true
+      "pl": "Wprowadź alternatywny tytuł, np. w innym języku"
     },
     {
       "id": "submissions.sections.form.dc.contributor.author.label",
       "en": "Authors",
-      "pl": "Autorzy",
-      "swps": true
+      "pl": "Autorzy"
     },
     {
       "id": "submissions.sections.form.dc.contributor.author.hint",
       "en": "Enter the publication's authors",
-      "pl": "Wprowadź wszystkich autorów tej pozycji",
-      "swps": true
+      "pl": "Wprowadź wszystkich autorów tej pozycji"
     },
     {
       "id": "submissions.sections.form.dc.type.label",
       "en": "Type",
-      "pl": "Typ",
-      "swps": true
+      "pl": "Typ"
     },
     {
       "id": "submissions.sections.form.dc.date.accessioned.label",
       "en": "Date of access",
-      "pl": "Data dostępu",
-      "swps": true
+      "pl": "Data dostępu"
     },
     {
       "id": "submissions.sections.form.dc.language.label",
       "en": "Main language",
-      "pl": "Główny język",
-      "swps": true
+      "pl": "Główny język"
     },
     {
       "id": "submissions.sections.form.dc.identifier.label",
       "en": "Identifiers",
-      "pl": "Identyfikatory",
-      "swps": true
+      "pl": "Identyfikatory"
     },
     {
       "id": "submissions.sections.form.dc.identifier.required",
       "en": "At least one identifier is required.",
-      "pl": "Przynajmniej jeden identyfikator jest wymagany.",
-      "swps": true
+      "pl": "Przynajmniej jeden identyfikator jest wymagany."
     },
     {
       "id": "submissions.sections.form.dc.identifier.uri.label",
       "en": "URL",
-      "pl": "URL",
-      "swps": true
+      "pl": "URL"
     },
     {
       "id": "submissions.sections.form.dc.affiliation.label",
       "en": "Organisational unit",
-      "pl": "Jednostka organizacyjna",
-      "swps": true
+      "pl": "Jednostka organizacyjna"
     },
     {
       "id": "submissions.sections.form.dc.pbn.identifier.label",
       "en": "PBN discipline",
-      "pl": "Dyscyplina PBN",
-      "swps": true
+      "pl": "Dyscyplina PBN"
     },
     {
       "id": "submissions.sections.form.dc.title.journal.label",
       "en": "Journal",
-      "pl": "Czasopismo",
-      "swps": true
+      "pl": "Czasopismo"
     },
     {
       "id": "submissions.sections.form.dc.identifier.issn.label",
       "en": "ISSN or e-ISSN",
-      "pl": "ISSN lub e-ISSN",
-      "swps": true
+      "pl": "ISSN lub e-ISSN"
     },
     {
       "id": "submissions.sections.form.dc.date.issued.label",
       "en": "Date of issue",
-      "pl": "Data wydania",
-      "swps": true
+      "pl": "Data wydania"
     },
     {
       "id": "submissions.sections.form.dc.description.volume.label",
       "en": "Volume",
-      "pl": "Numer tomu",
-      "swps": true
+      "pl": "Numer tomu"
     },
     {
       "id": "submissions.sections.form.dc.description.issue.label",
       "en": "Issue",
-      "pl": "Numer zeszytu",
-      "swps": true
+      "pl": "Numer zeszytu"
     },
     {
       "id": "submissions.sections.form.dc.description.physical.label",
-      "en": "Pages",
-      "pl": "Strony",
-      "swps": true
+      "en": "Pages range",
+      "pl": "Strony od-do"
     },
     {
       "id": "submissions.sections.form.dc.conference.series.label",
       "en": "Conference series",
-      "pl": "Seria konferencji",
-      "swps": true
+      "pl": "Seria konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.seriesshortcut.label",
       "en": "Conference series (short)",
-      "pl": "Nazwa skrócona serii konferencji",
-      "swps": true
+      "pl": "Nazwa skrócona serii konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.seriesweblink.label",
       "en": "Conference series website",
-      "pl": "Strona internetowa serii konferencji",
-      "swps": true
+      "pl": "Strona internetowa serii konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.label",
       "en": "Conference edition",
-      "pl": "Nazwa edycji konferencji",
-      "swps": true
+      "pl": "Nazwa edycji konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.shortcut.label",
       "en": "Conference edition (short)",
-      "pl": "Nazwa skrócona edycji konferencji",
-      "swps": true
+      "pl": "Nazwa skrócona edycji konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.country.label",
       "en": "Country",
-      "pl": "Kraj",
-      "swps": true
+      "pl": "Kraj"
     },
     {
       "id": "submissions.sections.form.dc.conference.place.label",
       "en": "City",
-      "pl": "Miejscowość",
-      "swps": true
+      "pl": "Miejscowość"
     },
     {
       "id": "submissions.sections.form.dc.conference.weblink.label",
       "en": "Conference website",
-      "pl": "Strona internetowa konferencji",
-      "swps": true
+      "pl": "Strona internetowa konferencji"
     },
     {
       "id": "submissions.sections.form.dc.conference.datestart.label",
       "en": "Date from",
-      "pl": "Data rozpoczęcia",
-      "swps": true
+      "pl": "Data rozpoczęcia"
     },
     {
       "id": "submissions.sections.form.dc.conference.datefinish.label",
       "en": "Date to",
-      "pl": "Data zakończenia",
-      "swps": true
+      "pl": "Data zakończenia"
     },
     {
       "id": "submissions.sections.form.dc.conference.coverage.label",
       "en": "Conference coverage",
-      "pl": "Zasięg konferencji",
-      "swps": true
+      "pl": "Zasięg konferencji"
     },
     {
       "id": "submissions.sections.form.dc.description.version.label",
       "en": "Text version",
-      "pl": "Wersja tekstu",
-      "swps": true
+      "pl": "Wersja tekstu"
     },
     {
       "id": "submissions.sections.form.dc.rights.label",
       "en": "License",
-      "pl": "Rodzaj licencji",
-      "swps": true
+      "pl": "Rodzaj licencji"
     },
     {
       "id": "submissions.sections.form.dc.date.created.label",
       "en": "Date of publication",
-      "pl": "Data publikacji",
-      "swps": true
+      "pl": "Data publikacji"
     },
     {
       "id": "submissions.sections.form.dc.description.finance.label",
       "en": "Publication fees",
-      "pl": "Opłaty za publikacje",
-      "swps": true
+      "pl": "Opłaty za publikacje"
     },
     {
       "id": "submissions.sections.form.dc.description.financecost.label",
       "en": "Amount in PLN",
-      "pl": "Kwota w PLN",
-      "swps": true
+      "pl": "Kwota w PLN"
     },
     {
       "id": "submissions.sections.form.dc.description.grantnumber.label",
       "en": "No. of grant/project",
-      "pl": "Numer grantu/projektu",
-      "swps": true
+      "pl": "Numer grantu/projektu"
     },
     {
       "id": "submissions.sections.form.dc.description.granttitle.label",
       "en": "Title of grant/project",
-      "pl": "Tytuł grantu/projektu",
-      "swps": true
+      "pl": "Tytuł grantu/projektu"
     },
     {
       "id": "submissions.sections.form.dc.relation.dataset.label",
       "en": "Related dataset",
-      "pl": "Powiązane dane badawcze",
-      "swps": true
+      "pl": "Powiązane dane badawcze"
     },
     {
       "id": "submissions.sections.form.dc.subtype.label",
       "en": "Type of item",
-      "pl": "Typ osiągnięcia",
-      "swps": true
+      "pl": "Typ osiągnięcia"
     },
     {
       "id": "submissions.sections.form.dc.date.submitted.label",
       "en": "Date of submission",
-      "pl": "Data upoważnienia",
-      "swps": true
+      "pl": "Data upoważnienia"
     },
     {
       "id": "submissions.sections.form.dc.date.issued.released.label",
@@ -22308,428 +22086,357 @@
     {
       "id": "submissions.sections.form.dc.date.premiere.label",
       "en": "Date of first public announcement",
-      "pl": "Data premiery / pierwszego upublicznienia",
-      "swps": true
+      "pl": "Data premiery / pierwszego upublicznienia"
     },
     {
       "id": "submissions.sections.form.dc.place.label",
       "en": "Place (country) where created",
-      "pl": "Miejsce (kraj) powstania",
-      "swps": true
+      "pl": "Miejsce (kraj) powstania"
     },
     {
       "id": "submissions.sections.form.dc.pubinfo.label",
       "en": "Place of public announcement",
-      "pl": "Miejsce upublicznienia (\"wystawa\")",
-      "swps": true
+      "pl": "Miejsce upublicznienia (\"wystawa\")"
     },
     {
       "id": "submissions.sections.form.dc.area.label",
       "en": "Place of distribution",
-      "pl": "Miejsce rozpowszechnienia",
-      "swps": true
+      "pl": "Miejsce rozpowszechnienia"
     },
     {
       "id": "submissions.sections.form.dc.coverage.spatial.label",
       "en": "Scope of distribution",
-      "pl": "Zakres upowszechnienia",
-      "swps": true
+      "pl": "Zakres upowszechnienia"
     },
     {
       "id": "submissions.sections.form.dc.contributor.institution.label",
       "en": "Exhibition organizer (institution)",
-      "pl": "Organizator wystawy (instytucja)",
-      "swps": true
+      "pl": "Organizator wystawy (instytucja)"
     },
     {
       "id": "submissions.sections.form.dc.description.type.artistic.label",
       "en": "Category of item",
-      "pl": "Kategoria osiągnięcia",
-      "swps": true
+      "pl": "Kategoria osiągnięcia"
     },
     {
       "id": "submissions.sections.form.dc.description.remarks.label",
       "en": "Achievement characteristics",
-      "pl": "Cechy osiągnięcia",
-      "swps": true
+      "pl": "Cechy osiągnięcia"
     },
     {
       "id": "submissions.sections.form.dc.description.points.label",
       "en": "Score / award",
-      "pl": "Punktacja / wyróżnienie",
-      "swps": true
+      "pl": "Punktacja / wyróżnienie"
     },
     {
       "id": "submissions.sections.form.dc.description.abstract.label",
       "en": "Prizes and awards (justification)",
-      "pl": "Nagrody i wyróżnienia (uzasadnienie)",
-      "swps": true
+      "pl": "Nagrody i wyróżnienia (uzasadnienie)"
     },
     {
       "id": "submissions.sections.form.dc.description.sponsorshipsource.label",
       "en": "Name of competition",
-      "pl": "Nazwa konkursu",
-      "swps": true
+      "pl": "Nazwa konkursu"
     },
     {
       "id": "submissions.sections.form.dc.description.sponsorshipdate.label",
       "en": "Year of award",
-      "pl": "Rok przyznania",
-      "swps": true
+      "pl": "Rok przyznania"
     },
     {
       "id": "submissions.sections.form.dc.description.sponsorship.label",
       "en": "Financing institution",
-      "pl": "Instytucja finansująca",
-      "swps": true
+      "pl": "Instytucja finansująca"
     },
     {
       "id": "submissions.sections.form.dc.description.additional.label",
       "en": "Remarks",
-      "pl": "Uwagi",
-      "swps": true
+      "pl": "Uwagi"
     },
     {
       "id": "submissions.sections.form.dc.description.place.label",
       "en": "Place (country) of award",
-      "pl": "Miejsce (kraj) przyznania",
-      "swps": true
+      "pl": "Miejsce (kraj) przyznania"
     },
     {
       "id": "submissions.sections.form.dc.description.awards.label",
       "en": "Awards / awards' winners",
-      "pl": "Nagrody / laureaci",
-      "swps": true
+      "pl": "Nagrody / laureaci"
     },
     {
       "id": "submissions.sections.form.dc.description.provenance.label",
       "en": "Purchase for collection",
-      "pl": "Zakup do kolekcji",
-      "swps": true
+      "pl": "Zakup do kolekcji"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.series.label",
       "en": "Exhibition series",
-      "pl": "Seria wystaw",
-      "swps": true
+      "pl": "Seria wystaw"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.label",
       "en": "Exhibition title",
-      "pl": "Tytuł wystawy",
-      "swps": true
+      "pl": "Tytuł wystawy"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.shortcut.label",
       "en": "Exhibition name (short)",
-      "pl": "Nazwa skrócona wystawy",
-      "swps": true
+      "pl": "Nazwa skrócona wystawy"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.seriesweblink.label",
       "en": "Exhibition series (website)",
-      "pl": "Strona www serii wystaw",
-      "swps": true
+      "pl": "Strona www serii wystaw"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.country.label",
       "en": "Place of exhibition (country)",
-      "pl": "Miejsce wystawy (kraj)",
-      "swps": true
+      "pl": "Miejsce wystawy (kraj)"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.city.label",
       "en": "Place of exhibition (city)",
-      "pl": "Miejsce wystawy (miasto)",
-      "swps": true
+      "pl": "Miejsce wystawy (miasto)"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.weblink.label",
       "en": "Exhibition website",
-      "pl": "Strona www wystawy",
-      "swps": true
+      "pl": "Strona www wystawy"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.startDate.label",
       "en": "Date of exhibition start",
-      "pl": "Termin rozpoczęcia wystawy",
-      "swps": true
+      "pl": "Termin rozpoczęcia wystawy"
     },
     {
       "id": "submissions.sections.form.dc.exhibition.endDate.label",
       "en": "Date of exhibition end",
-      "pl": "Termin zakończenia wystawy",
-      "swps": true
+      "pl": "Termin zakończenia wystawy"
     },
     {
       "id": "submissions.sections.form.dc.contributor.serieseditor.label",
       "en": "Exhibition curator",
-      "pl": "Kurator wystawy",
-      "swps": true
+      "pl": "Kurator wystawy"
     },
     {
       "id": "submissions.sections.form.dc.coverage.temporal.label",
       "en": "Scope of dissemination (time)",
-      "pl": "Zakres rozpowszechniania (czas)",
-      "swps": true
+      "pl": "Zakres rozpowszechniania (czas)"
     },
     {
       "id": "submissions.sections.form.dc.date.available.label",
       "en": "Date of release",
-      "pl": "Data udostępnienia",
-      "swps": true
+      "pl": "Data udostępnienia"
     },
     {
       "id": "submissions.sections.form.dc.description.conftpe.label",
       "en": "Exhibition description, number of recipients",
-      "pl": "Opis wystawy, liczba odbiorców",
-      "swps": true
+      "pl": "Opis wystawy, liczba odbiorców"
     },
     {
       "id": "submissions.sections.form.dc.description.series.label",
       "en": "Title of series",
-      "pl": "Tytuł serii",
-      "swps": true
+      "pl": "Tytuł serii"
     },
     {
       "id": "submissions.sections.form.dc.format.extent.label",
       "en": "Size",
-      "pl": "Wymiary",
-      "swps": true
+      "pl": "Wymiary"
     },
     {
       "id": "submissions.sections.form.dc.format.medium.label",
       "en": "Manufacturing technique",
-      "pl": "Technika wytwarzania",
-      "swps": true
+      "pl": "Technika wytwarzania"
     },
     {
       "id": "submissions.sections.form.dc.identifier.weblink.label",
       "en": "Link to source",
-      "pl": "Link do źródła",
-      "swps": true
+      "pl": "Link do źródła"
     },
     {
       "id": "submissions.sections.form.dc.relation.hasversion.label",
       "en": "Later versions",
-      "pl": "Późniejsze wersje",
-      "swps": true
+      "pl": "Późniejsze wersje"
     },
     {
       "id": "submissions.sections.form.dc.relation.ispartofseries.label",
       "en": "Part of collection / series",
-      "pl": "Część kolekcji / część serii",
-      "swps": true
+      "pl": "Część kolekcji / część serii"
     },
     {
       "id": "submissions.sections.form.dc.rights.original.label",
       "en": "Type of license",
-      "pl": "Rodzaj licencji",
-      "swps": true
+      "pl": "Rodzaj licencji"
     },
     {
       "id": "submissions.sections.form.dc.subject.pl.label",
       "en": "Keywords (pl)",
-      "pl": "Słowa kluczowe (pl)",
-      "swps": true
+      "pl": "Słowa kluczowe (pl)"
     },
     {
       "id": "submissions.sections.form.dc.subject.en.label",
       "en": "Keywords (en)",
-      "pl": "Słowa kluczowe (en)",
-      "swps": true
+      "pl": "Słowa kluczowe (en)"
     },
     {
       "id": "submissions.sections.form.dc.subject.other.label",
       "en": "Keywords (other)",
-      "pl": "Słowa kluczowe (inne)",
-      "swps": true
+      "pl": "Słowa kluczowe (inne)"
     },
     {
       "id": "submissions.sections.form.dc.abstract.pl.label",
       "en": "Abstract (pl)",
-      "pl": "Abstrakt (pl)",
-      "swps": true
+      "pl": "Abstrakt (pl)"
     },
     {
       "id": "submissions.sections.form.dc.abstract.en.label",
       "en": "Abstract (en)",
-      "pl": "Abstrakt (en)",
-      "swps": true
+      "pl": "Abstrakt (en)"
     },
     {
       "id": "submissions.sections.form.dc.abstract.other.label",
       "en": "Abstract (other)",
-      "pl": "Abstrakt (inny)",
-      "swps": true
+      "pl": "Abstrakt (inny)"
     },
     {
       "id": "submissions.sections.form.dc.editor.remarks.label",
       "en": "Editor's remarks",
-      "pl": "Uwagi redaktora",
-      "swps": true
+      "pl": "Uwagi redaktora"
     },
     {
       "id": "submissions.sections.form.dc.relation.publication.label",
       "en": "Related publication",
-      "pl": "Powiązana publikacja",
-      "swps": true
+      "pl": "Powiązana publikacja"
     },
     {
       "id": "submissions.sections.form.dc.identifier.doi.label",
       "en": "DOI",
-      "pl": "DOI",
-      "swps": true
+      "pl": "DOI"
     },
     {
       "id": "submissions.sections.form.dc.coverage.from.label",
       "en": "Time range from",
-      "pl": "Zakres czasowy od",
-      "swps": true
+      "pl": "Zakres czasowy od"
     },
     {
       "id": "submissions.sections.form.dc.coverage.to.label",
       "en": "Time range to",
-      "pl": "Zakres czasowy do",
-      "swps": true
+      "pl": "Zakres czasowy do"
     },
     {
       "id": "submissions.sections.form.dc.date.accesioned.label",
       "en": "Date of deposit",
-      "pl": "Data zdeponowania",
-      "swps": true
+      "pl": "Data zdeponowania"
     },
     {
       "id": "submissions.sections.form.dc.description.additional.dataset.label",
       "en": "Description of dataset",
-      "pl": "Opis zbioru danych",
-      "swps": true
+      "pl": "Opis zbioru danych"
     },
     {
       "id": "submissions.sections.form.dc.submitter.role.label",
       "en": "Depositor role",
-      "pl": "Rola deponenta",
-      "swps": true
+      "pl": "Rola deponenta"
     },
     {
       "id": "submissions.sections.form.dc.submitter.name.label",
       "en": "Depositor name",
-      "pl": "Imię i nazwisko deponenta",
-      "swps": true
+      "pl": "Imię i nazwisko deponenta"
     },
     {
       "id": "submissions.sections.form.dc.submitter.email.label",
       "en": "Depositor e-mail",
-      "pl": "E-mail deponenta",
-      "swps": true
+      "pl": "E-mail deponenta"
     },
     {
       "id": "submissions.sections.form.dc.submitter.affiliation.label",
       "en": "Depositor affiliation",
-      "pl": "Afiliacja deponenta",
-      "swps": true
+      "pl": "Afiliacja deponenta"
     },
     {
       "id": "submissions.sections.form.dc.contactperson.role.label",
       "en": "Contact person role",
-      "pl": "Rola osoby do kontaktu",
-      "swps": true
+      "pl": "Rola osoby do kontaktu"
     },
     {
       "id": "submissions.sections.form.dc.contactperson.name.label",
       "en": "Contact person name",
-      "pl": "Imię i nazwisko osoby do kontaktu",
-      "swps": true
+      "pl": "Imię i nazwisko osoby do kontaktu"
     },
     {
       "id": "submissions.sections.form.dc.contactperson.email.label",
       "en": "Contact person e-mail",
-      "pl": "E-mail osoby do kontaktu",
-      "swps": true
+      "pl": "E-mail osoby do kontaktu"
     },
     {
       "id": "submissions.sections.form.dc.contactperson.affiliation.label",
       "en": "Contact person affiliation",
-      "pl": "Afiliacja osoby do kontaktu",
-      "swps": true
+      "pl": "Afiliacja osoby do kontaktu"
     },
     {
       "id": "submissions.sections.form.dc.language.other.label",
       "en": "Alternative title language",
-      "pl": "Język innego tytułu",
-      "swps": true
+      "pl": "Język innego tytułu"
     },
     {
       "id": "submissions.sections.form.dc.publisher.ministerial.label",
       "en": "Ministerial publisher",
-      "pl": "Wydawca ministerialny",
-      "swps": true
+      "pl": "Wydawca ministerialny"
     },
     {
       "id": "submissions.sections.form.dc.description.edition.label",
       "en": "Edition",
-      "pl": "Wydanie",
-      "swps": true
+      "pl": "Wydanie"
     },
     {
       "id": "submissions.sections.form.dc.identifier.isbn.label",
       "en": "ISBN or e-ISBN",
-      "pl": "ISBN lub e-ISBN",
-      "swps": true
+      "pl": "ISBN lub e-ISBN"
     },
     {
       "id": "submissions.sections.form.dc.contributor.institution2.label",
       "en": "Responsible institution",
-      "pl": "Instytucja sprawcza",
-      "swps": true
+      "pl": "Instytucja sprawcza"
     },
     {
       "id": "submissions.sections.form.dc.language.abstract.label",
       "en": "Abstract language (other)",
-      "pl": "Język abstraktu (inny)",
-      "swps": true
+      "pl": "Język abstraktu (inny)"
     },
     {
       "id": "submissions.sections.form.dc.language.subject.label",
       "en": "Keywords language (other)",
-      "pl": "Język słów kluczowych (inny)",
-      "swps": true
+      "pl": "Język słów kluczowych (inny)"
     },
     {
       "id": "submissions.sections.form.dc.description.seriesnumber.label",
       "en": "Number of series",
-      "pl": "Numer w serii wydawniczej",
-      "swps": true
+      "pl": "Numer w serii wydawniczej"
     },
     {
       "id": "submissions.sections.form.dc.description.seriesissn.label",
       "en": "Series of ISSN",
-      "pl": "ISSN serii",
-      "swps": true
+      "pl": "ISSN serii"
     },
     {
       "id": "submissions.sections.form.dc.translation.label",
       "en": "Is translated?",
-      "pl": "Czy przekład z innego języka?",
-      "swps": true
+      "pl": "Czy przekład z innego języka?"
     },
     {
       "id": "submissions.sections.form.dc.contributor.translator.label",
       "en": "Translation author",
-      "pl": "Autor tłumaczenia",
-      "swps": true
+      "pl": "Autor tłumaczenia"
     },
     {
       "id": "submissions.sections.form.dc.edition.label",
       "en": "Editor",
-      "pl": "Redaktor",
-      "swps": true
+      "pl": "Redaktor"
     },
     {
       "id": "submissions.sections.form.dc.relation.book.label",
       "en": "Related monograph",
-      "pl": "Relacja monografii",
-      "swps": true
+      "pl": "Relacja monografii"
     },
     {
       "id": "submission.sections.general.info.article",
@@ -22836,38 +22543,32 @@
     {
       "id": "submissions.sections.form.dc.publisher.label",
       "en": "Publisher",
-      "pl": "Wydawca",
-      "swps": true
+      "pl": "Wydawca"
     },
     {
       "id": "submissions.sections.form.dc.identifier.uri",
       "en": "URI",
-      "pl": "URI",
-      "swps": true
+      "pl": "URI"
     },
     {
       "id": "submissions.sections.form.dc.pbn.affiliation.label",
       "en": "PBN discipline",
-      "pl": "Dyscyplina PBN",
-      "swps": true
+      "pl": "Dyscyplina PBN"
     },
     {
       "id": "submissions.sections.form.dc.contributor.editor.label",
       "en": "Editor",
-      "pl": "Redaktor",
-      "swps": true
+      "pl": "Redaktor"
     },
     {
       "id": "submissions.sections.form.dc.identifier.hint",
       "en": "Enter at least one identifier. You can choose more than one.",
-      "pl": "Wpisz co najmniej jeden identyfikator. Możesz wybrać więcej niż jeden.",
-      "swps": true
+      "pl": "Wpisz co najmniej jeden identyfikator. Możesz wybrać więcej niż jeden."
     },
     {
       "id": "submissions.sections.form.dc.description.version.hint",
       "en": "Enter a number here, if there is a new version of that item.",
-      "pl": "Wypełnij to pole, jeśli to nowa wersja tej pozycji.",
-      "swps": true
+      "pl": "Wypełnij to pole, jeśli to nowa wersja tej pozycji."
     },
     {
       "id": "form.other-information.points2017",
@@ -22914,20 +22615,17 @@
     {
       "id": "submissions.sections.form.dc.description.admin.label",
       "en": "Description of the award or distinction",
-      "pl": "Charakterystyka nagrody i wyróżnienia",
-      "swps": true
+      "pl": "Charakterystyka nagrody i wyróżnienia"
     },
     {
       "id": "submissions.sections.form.dc.description.provenance.art.label",
       "en": "Name of a collection or place of special importance to culture",
-      "pl": "Nazwa kolekcji lub miejsca o szczególnym znaczeniu dla kultury",
-      "swps": true
+      "pl": "Nazwa kolekcji lub miejsca o szczególnym znaczeniu dla kultury"
     },
     {
       "id": "submissions.sections.form.dc.description.country.label",
       "en": "Country where the collection is located or the place of special importance for culture",
-      "pl": "Kraj, w którym znajduje się kolekcja lub miejsce o szczególnym znaczeniu dla kultury",
-      "swps": true
+      "pl": "Kraj, w którym znajduje się kolekcja lub miejsce o szczególnym znaczeniu dla kultury"
     },
     {
       "id": "article.page.titleprefix ",
@@ -22937,20 +22635,17 @@
     {
       "id": "submissions.sections.form.dc.rights.explanation.label",
       "en": "Motivation for opt-out version",
-      "pl": "Uzasadnienie wersji opt-out",
-      "swps": true
+      "pl": "Uzasadnienie wersji opt-out"
     },
     {
       "id": "submissions.sections.form.dc.rights.explanation.hint",
       "en": "If \"closed version\" access was selected, type why publication could not be available for public",
-      "pl": "Jeśli zaznaczono wersję \"dostęp zamknięty\", wpisz dlaczego publikacja nie może zostać udostępniona",
-      "swps": true
+      "pl": "Jeśli zaznaczono wersję \"dostęp zamknięty\", wpisz dlaczego publikacja nie może zostać udostępniona"
     },
     {
       "id": "submissions.sections.form.dc.description.accesstime.label",
       "en": "Release time",
-      "pl": "Czas udostępnienia",
-      "swps": true
+      "pl": "Czas udostępnienia"
     },
     {
       "id": "home.recent-submissions.head",
@@ -22968,14 +22663,12 @@
     {
       "id": "submissions.sections.form.dc.abstract.author.label",
       "en": "Work's characteristics (author)",
-      "pl": "Opis dzieła (autor)",
-      "swps": true
+      "pl": "Opis dzieła (autor)"
     },
     {
       "id": "submissions.sections.form.dc.type.monography.label",
       "en": "Type",
-      "pl": "Typ",
-      "swps": true
+      "pl": "Typ"
     },
     {
       "id": "submission.sections.sherpa-policy.title-empty",
@@ -22999,21 +22692,19 @@
     {
       "id": "submissions.sections.form.dc.relation.book.hint",
       "en": "Select a book that is a contener of this chapter",
-      "pl": "Wybierz monografię, która jest połączona z rozdziałem",
-      "swps": true
+      "pl": "Wybierz monografię, która jest połączona z rozdziałem"
     },
     {
       "id": "submissions.sections.form.dc.date.issued.hint",
       "en": "Select at least publishing year",
-      "pl": "Wpisz co najmniej rok wydania",
-      "swps": true
+      "pl": "Wpisz co najmniej rok wydania"
     },
     {
       "id": "item.page.title.alternative",
       "en": "Alternative title",
       "pl": "Alternatywny tytuł",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23022,8 +22713,8 @@
       "id": "item.page.title.journal",
       "en": "Journal title",
       "pl": "Tytuł czasopisma",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23032,8 +22723,8 @@
       "id": "item.page.description.volume",
       "en": "Volume",
       "pl": "Tom",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23042,8 +22733,8 @@
       "id": "item.page.description.issue",
       "en": "Issue",
       "pl": "Zeszyt",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23052,8 +22743,8 @@
       "id": "item.page.description.physical",
       "en": "Pages",
       "pl": "Strony",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23062,8 +22753,8 @@
       "id": "item.page.doi",
       "en": "DOI",
       "pl": "DOI",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23072,8 +22763,8 @@
       "id": "item.page.issn",
       "en": "ISSN",
       "pl": "ISSN",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23082,8 +22773,8 @@
       "id": "item.page.accesstime",
       "en": "Access date",
       "pl": "Data dostępu",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23092,8 +22783,8 @@
       "id": "item.page.abstract.pl",
       "en": "Abstract PL",
       "pl": "Abstrakt PL",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23102,8 +22793,8 @@
       "id": "item.page.abstract.en",
       "en": "Abstract EN",
       "pl": "Abstrakt EN",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23112,8 +22803,8 @@
       "id": "item.page.abstract.other",
       "en": "Abstract other",
       "pl": "Abstrakt inny",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23122,8 +22813,8 @@
       "id": "item.page.dspace.entity.type",
       "en": "Type",
       "pl": "Typ",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23132,8 +22823,8 @@
       "id": "item.page.type",
       "en": "Subtype",
       "pl": "Podtyp",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23142,8 +22833,8 @@
       "id": "item.page.rights",
       "en": "License type",
       "pl": "Rodzaj licencji",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23152,8 +22843,8 @@
       "id": "item.page.description.granttitle",
       "en": "Grant/project name",
       "pl": "Tytuł grantu/projektu",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23192,8 +22883,8 @@
       "id": "item.page.status",
       "en": "Status",
       "pl": "Status",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23252,8 +22943,8 @@
       "id": "item.page.type.ReviewArticle",
       "en": "Review Article",
       "pl": "Artykuł recenzyjny",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23262,8 +22953,8 @@
       "id": "item.page.type.JournalArticle",
       "en": "Journal Article",
       "pl": "Artykuł w czasopiśmie",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23272,8 +22963,8 @@
       "id": "item.page.type.ConferenceMaterial",
       "en": "Conference Material",
       "pl": "Materiał konferencyjny",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23282,8 +22973,8 @@
       "id": "item.page.dspace.entity.type.Article",
       "en": "Article",
       "pl": "Artykuł",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23292,8 +22983,8 @@
       "id": "item.page.dspace.entity.type.monography",
       "en": "Monograph",
       "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23302,8 +22993,8 @@
       "id": "item.page.dspace.entity.type.artistic",
       "en": "Artistic",
       "pl": "Artystyczne",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23312,8 +23003,8 @@
       "id": "item.page.dspace.entity.type.dataset",
       "en": "Dataset",
       "pl": "Dane badawcze",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23322,8 +23013,8 @@
       "id": "item.page.accesstime.after_publication",
       "en": "after publication",
       "pl": "po opublikowaniu",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23332,8 +23023,8 @@
       "id": "item.page.accesstime.at_publication",
       "en": "at publication",
       "pl": "w momencie opublikowania",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23342,8 +23033,8 @@
       "id": "item.page.accesstime.before_publication",
       "en": "before publication",
       "pl": "przed opublikowaniem",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23352,8 +23043,8 @@
       "id": "item.page.type.monography",
       "en": "Monograph",
       "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23362,8 +23053,8 @@
       "id": "item.page.type.monography_edition",
       "en": "Edited monograph",
       "pl": "Redakcja monografii",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23372,8 +23063,8 @@
       "id": "item.page.type.monography_chapter",
       "en": "Chapter in monograph",
       "pl": "Rozdział w monografii",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23382,8 +23073,8 @@
       "id": "item.page.affiliation",
       "en": "Organisational Unit",
       "pl": "Jednostka organizacyjna",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -23402,7 +23093,7 @@
       "id": "410.gone-handle",
       "en": "This object is no longer available",
       "pl": "Obiekt nie jest już dostępny",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23412,7 +23103,7 @@
       "id": "410.link.home-page",
       "en": "Take me to the home page",
       "pl": "Wróc na stronę główną",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23502,7 +23193,7 @@
       "id": "admin.edit-user-agreement.markdown",
       "en": "\"<i>End User Agreement</i> text supports <a href=\\\"https://www.markdownguide.org/basic-syntax/\\\" target=\\\"_blank\\\">Markdown</a> language.",
       "pl": "\"<i>End User Agreement</i> tekst w języku <a href=\\\"https://www.markdownguide.org/basic-syntax/\\\" target=\\\"_blank\\\">Markdown</a>.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23512,7 +23203,7 @@
       "id": "bitstream.download.page.close",
       "en": "close",
       "pl": "zamknij",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23522,7 +23213,7 @@
       "id": "bitstream.edit.form.fileType.hint",
       "en": "Personal picture, logo, main article, etc.",
       "pl": "Zdjęcie, logo, artykuł itd.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23532,7 +23223,7 @@
       "id": "bitstream.edit.form.fileType.label",
       "en": "File type",
       "pl": "Typ pliku",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23582,7 +23273,7 @@
       "id": "context-menu.actions.orcid-view",
       "en": "Open ORCID setting page",
       "pl": "Otwórz stronę z ustawieniami ORCID",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23592,7 +23283,7 @@
       "id": "context-menu.actions.show-all-metadata",
       "en": "Show all metadata (technical view)",
       "pl": "Pokaż wszystkie metadane (w widoku technicznym)",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23602,7 +23293,7 @@
       "id": "cris-layout.advanced-attachment.dc.description",
       "en": "Description",
       "pl": "Opis",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23612,7 +23303,7 @@
       "id": "cris-layout.advanced-attachment.dc.title",
       "en": "Name",
       "pl": "Nazwa",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23622,7 +23313,7 @@
       "id": "cris-layout.advanced-attachment.dc.type",
       "en": "Type",
       "pl": "Typ",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23632,7 +23323,7 @@
       "id": "cris-layout.advanced-attachment.download",
       "en": "Download",
       "pl": "Pobierz",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23642,7 +23333,7 @@
       "id": "cris-layout.advanced-attachment.format",
       "en": "Format",
       "pl": "Format",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23652,7 +23343,7 @@
       "id": "cris-layout.advanced-attachment.no_thumbnail",
       "en": "No Thumbnail Available",
       "pl": "Brak miniatury",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23662,7 +23353,7 @@
       "id": "cris-layout.advanced-attachment.requestACopy",
       "en": "Request a copy",
       "pl": "Poproś o kopię",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23672,7 +23363,7 @@
       "id": "cris-layout.advanced-attachment.size",
       "en": "Size",
       "pl": "Rozmiar",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23682,7 +23373,7 @@
       "id": "cris-layout.advanced-attachment.viewMore",
       "en": "View More",
       "pl": "Więcej",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23692,7 +23383,7 @@
       "id": "cris-layout.attachment.viewMore",
       "en": "View More",
       "pl": "Więcej",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23702,7 +23393,7 @@
       "id": "curation-task.task.hocr.label",
       "en": "Extract text (HOCR) from images",
       "pl": "Wyodrębnij tekst (HOCR) z obrazów",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23712,7 +23403,7 @@
       "id": "curation-task.task.ocrclean.label",
       "en": "Remove all metadata bundles and uploaded ocr created by a previous upload to the ocr server",
       "pl": "Usuń wszystkie paczki metadanych i przesłane pliki OCR podczas wcześniejszych wysyłek na serwer OCR",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23722,7 +23413,7 @@
       "id": "curation-task.task.ocrfilter.label",
       "en": "Consolidate hOCR for fulltext indexing",
       "pl": "Dostosuj hOCR do wyszukiwania pełnotekstowego",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23732,7 +23423,7 @@
       "id": "curation-task.task.pushocr.label",
       "en": "Send OCR to the Annotation Server",
       "pl": "Wyślij OCR na Annotation Server",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23752,7 +23443,7 @@
       "id": "error.validation.custom-url.conflict",
       "en": "The custom url has been already used, please try with a new one.",
       "pl": "Ten URL jest już używany, spróbuj wpisać inny.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23762,7 +23453,7 @@
       "id": "error.validation.custom-url.empty",
       "en": "The custom url is required and cannot be empty.",
       "pl": "URL jest wymagany i nie może być pusty.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23772,7 +23463,7 @@
       "id": "error.validation.custom-url.invalid-characters",
       "en": "The custom url contains invalid characters.",
       "pl": "URL zawiera niedozwolone znaki.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23782,7 +23473,7 @@
       "id": "form.other-information.oairecerif_author_affiliation",
       "en": "Affiliation",
       "pl": "Afiliacja",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23792,7 +23483,7 @@
       "id": "form.other-information.oairecerif_editor_affiliation",
       "en": "Affiliation",
       "pl": "Afiliacja",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23802,7 +23493,7 @@
       "id": "form.other-information.person_identifier_orcid",
       "en": "ORCID iD",
       "pl": "ORCID iD",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23812,7 +23503,7 @@
       "id": "item.page.metric.label.view-detail-btn",
       "en": "View Details",
       "pl": "Szczegóły",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23822,7 +23513,7 @@
       "id": "manage.relationships.error.hide",
       "en": "An unexpected error occurs while hiding the entity.",
       "pl": "Wystąpił niespodziewany błąd podczas ukrywania encji.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23832,7 +23523,7 @@
       "id": "manage.relationships.error.select",
       "en": "An unexpected error occurs while selecting the entity.",
       "pl": "Wystąpił niespodziewany błąd podczas wybierania encji.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23842,7 +23533,7 @@
       "id": "manage.relationships.error.sort",
       "en": "An unexpected error occurs while sorting entities.",
       "pl": "Wystąpił niespodziewany błąd podczas sortowania encji.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23852,7 +23543,7 @@
       "id": "manage.relationships.error.unhide",
       "en": "An unexpected error occurs while exposing the entity.",
       "pl": "Wystąpił niespodziewany błąd podczas upublicznienia encji.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23862,7 +23553,7 @@
       "id": "manage.relationships.error.unselect",
       "en": "An unexpected error occurs while unselecting the entity.",
       "pl": "Wystąpił niespodziewany błąd podczas odznaczania encji.",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23871,7 +23562,7 @@
     {
       "id": "menu.section.export_batch",
       "en": "Batch Export (ZIP)",
-      "pl": "Eksport masowy (ZIP)",
+      "pl": "Import masowy (ZIP)",
       "dspace": true,
       "cris": true,
       "swps": false,
@@ -23882,7 +23573,7 @@
       "id": "modal.item-detail-page.confirm.cancel",
       "en": "Close",
       "pl": "Zamknij",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -23892,7 +23583,7 @@
       "id": "modal.item-detail-page.title",
       "en": "Item Page Detail",
       "pl": "Szczegóły pozycji",
-      "dspace": false,
+      "dspace": true,
       "cris": true,
       "swps": false,
       "asp": false,
@@ -24762,8 +24453,8 @@
       "id": "artistic.listelement.badge",
       "en": "Artistic",
       "pl": "Artystyczne",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24772,8 +24463,8 @@
       "id": "book.listelement.badge",
       "en": "Monograph",
       "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24782,8 +24473,8 @@
       "id": "item.page.rights.embargo",
       "en": "This item has an embargo and currently is unavailable",
       "pl": "Pozycja jest objęta embargiem i nie jest dostępna",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24792,8 +24483,8 @@
       "id": "item.page.rights.limitedaccess",
       "en": "Access to this item is limited",
       "pl": "Dostęp do pozycji jest ograniczony",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24802,8 +24493,8 @@
       "id": "item.page.conference.series",
       "en": "Conference series",
       "pl": "Seria konferencji",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24812,8 +24503,8 @@
       "id": "item.page.conference.place",
       "en": "Conference place",
       "pl": "Miejsce konferencji",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24822,8 +24513,8 @@
       "id": "item.page.conference.datestart",
       "en": "Start date",
       "pl": "Date rozpoczęcia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24832,8 +24523,8 @@
       "id": "item.page.conference.datefinish",
       "en": "Finish date",
       "pl": "Data zakończenia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24842,8 +24533,8 @@
       "id": "item.page.description.additional",
       "en": "Remarks",
       "pl": "Uwagi",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24852,8 +24543,8 @@
       "id": "item.page.isbn",
       "en": "ISBN",
       "pl": "ISBN",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24862,8 +24553,8 @@
       "id": "item.page.series",
       "en": "Series",
       "pl": "Seria",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24872,8 +24563,8 @@
       "id": "item.page.seriesnumber",
       "en": "Series number",
       "pl": "Numer serii",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24882,8 +24573,8 @@
       "id": "item.page.rights.cc-by-sa",
       "en": "Except as otherwise noted, this item is licensed under the Attribution-ShareAlike licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa-Na tych samych warunkach | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24892,8 +24583,8 @@
       "id": "item.page.rights.cc-by",
       "en": "Except as otherwise noted, this item is licensed under the Attribution licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24902,8 +24593,8 @@
       "id": "item.page.rights.cc-by-nd",
       "en": "Except as otherwise noted, this item is licensed under the Attribution-NoDerivatives licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa-Bez utworów zależnych | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24912,8 +24603,8 @@
       "id": "item.page.rights.cc-by-nc",
       "en": "Except as otherwise noted, this item is licensed under the Attribution-NonCommercial licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa-Użycie niekomercyjne | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24922,8 +24613,8 @@
       "id": "item.page.rights.cc-by-nc-sa",
       "en": "Except as otherwise noted, this item is licensed under the Attribution-NonCommercial-ShareAlike licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa-Użycie niekomercyjne-Na tych samych warunkach | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24932,8 +24623,8 @@
       "id": "item.page.rights.cc-by-nc-nd",
       "en": "Except as otherwise noted, this item is licensed under the Attribution-NonCommercial-NoDerivatives licence | Permitted use of copyrighted works",
       "pl": "Poza zaznaczonymi wyjątkami, licencja tej pozycji opisana jest jako Uznanie autorstwa-Użycie niekomercyjne-Bez utworów zależnych | Dozwolony użytek utworów chronionych",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -24942,8 +24633,8 @@
       "id": "item.page.dspace.entity.type.Book",
       "en": "Book",
       "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
+      "dspace": true,
+      "cris": true,
       "swps": true,
       "asp": false,
       "uw": false
@@ -25484,7 +25175,7 @@
       "pl": "Charakterystyka osiągnięcia artystycznego",
       "dspace": false,
       "cris": false,
-      "swps": true,
+      "swps": false,
       "asp": false,
       "uw": false
     },
@@ -25669,6 +25360,16 @@
       "uw": false
     },
     {
+      "id": "item.page.dspace.entity.type.Dataset",
+      "en": "Dataset",
+      "pl": "Dane badawcze",
+      "dspace": false,
+      "cris": false,
+      "swps": true,
+      "asp": false,
+      "uw": false
+    },
+    {
       "id": "confirmation-modal.export-batch.confirm",
       "en": "Export",
       "pl": "Eksportuj",
@@ -25687,603 +25388,6 @@
       "swps": false,
       "asp": false,
       "uw": false
-    },
-    {
-      "id": "input.placeholder.day",
-      "en": "Day",
-      "pl": "Dzień",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "input.placeholder.month",
-      "en": "Month",
-      "pl": "Miesiąc",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "input.placeholder.year",
-      "en": "Year",
-      "pl": "Rok",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "input.increment",
-      "en": "Increment",
-      "pl": "Plus",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": false,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "input.decrement",
-      "en": "Decrement",
-      "pl": "Minus",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": false,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.rights.question.label",
-      "en": "Could this achievement be made available for public?",
-      "pl": "Czy osiągnięcia może zostać udostępnione",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.contactperson.hint",
-      "en": "Enter if the contact person is different than the depositor",
-      "pl": "Wpisz jeśli osoba do kontaktu jest inna niż deponent",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.identifier.doi.dataset.hint",
-      "en": "This dataset already has DOI? Type it. Do you deposit this dataset for the first time? Type RESERVE DOI.",
-      "pl": "Ten zbiór danych ma już DOI? Wprowadź numer.  Deponujesz ten zbiór po raz pierwszy? Wpisz REZERWUJ DOI.",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "monography.translation",
-      "en": "Translation",
-      "pl": "Tłumaczenie",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.description.editionmon.label",
-      "en": "Scientific edition of the source text",
-      "pl": "Edycja naukowa tekstu źródłowego",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.description.authorship.label",
-      "en": "Monograph with chapters' authorship",
-      "pl": "Monografia z oznaczonym autorstwem rozdziałów",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.relation.title.label",
-      "en": "Related monograph (alternative title)",
-      "pl": "Relacja monografii (inny tytuł)",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.relation.language.label",
-      "en": "Related monograph (language)",
-      "pl": "Relacja monografii (język główny)",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.relation.altlanguage.label",
-      "en": "Related monograph (language of the alternative title)",
-      "pl": "Relacja monografii (język innego tytułu)",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.relation.pages.label",
-      "en": "Related monograph (pages)",
-      "pl": "Relacja monografii (strony od-do)",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "relationships.editor",
-      "en": "Editor",
-      "pl": "Redaktor",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "cookies.consent.accept",
-      "en": "Accept",
-      "pl": "Akceptuję",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": false,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.description.physical.mono.label",
-      "en": "Pages",
-      "pl": "Liczba stron",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submissions.sections.form.dc.date.issued.required",
-      "en": "This field is required.",
-      "pl": "To pole jest wymagane.",
-      "dspace": false,
-      "cris": false,
-      "pcg": true,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "submission.sections.item.correction",
-      "en": "Correction",
-      "pl": "Korekta",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "reciter.suggestion.type.orcidWorks",
-      "en": "suggestion",
-      "pl": "sugestię",
-      "dspace": false,
-      "cris": true,
-      "pcg": false,
-      "swps": false,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "statistics.table.mainReports.title.TotalItems",
-      "en": "Top Items",
-      "pl": "Najpopularniejsze pozycje",
-      "dspace": false,
-      "cris": true,
-      "pcg": false,
-      "swps": false,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtIndividualExhibitionReputableEntity",
-      "en": "an individual author's exhibition or retrospective of artistic achievements, presenting works in the fields of visual arts, conservation, design, photography, multimedia or interactivity, organised by a renowned artistic centre or a renowned cultural institution",
-      "pl": "indywidualna autorska wystawa lub retrospektywa dorobku artystycznego, prezentująca dzieła plastyczne, konserwatorskie, projektowe, fotograficzne, multimedialne lub interaktywne, zorganizowana przez renomowany ośrodek artystyczny albo przez renomowaną instytucję kultury",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtAuthorWorkonExhibitionReputableEntity",
-      "en": "authorship of a plastic work or artistic project, a multimedia, performance, audiovisual, interactive, sculptural, conservation or interdisciplinary work, a series of plastic or photographic works or a design collection, disseminated at a significant artistic or scientific event",
-      "pl": "autorstwo dzieła plastycznego lub projektu artystycznego, realizacji multimedialnej, performatywnej, audiowizualnej, interaktywnej, rzeźbiarskiej, konserwatorskiej lub interdyscyplinarnej, cyklu prac plastycznych lub fotograficznych lub kolekcji projektowej, rozpowszechnionych podczas znaczącego wydarzenia artystycznego lub naukowego",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtProjectAuthor",
-      "en": "authorship of a visual work in the field of design arts, including industrial design, interior design, landscape architecture or costume design",
-      "pl": "autorstwo dzieła plastycznego z zakresu sztuk projektowych, w tym wzornictwa przemysłowego, architektury wnętrz, architektury krajobrazu lub projektowania kostiumów",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtConservatorship",
-      "en": "authorship of a significant conservation project, including the conservation of monuments with design and documentation",
-      "pl": "autorstwo znaczącej realizacji konserwatorskiej, w tym w zakresie konserwacji zabytków wraz z projektem i dokumentacją",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtGroupExhibition",
-      "en": "participation in a group exhibition organised by a museum, a renowned gallery, a renowned art centre or a renowned cultural institution",
-      "pl": "udział w wystawie zbiorowej zorganizowanej przez muzeum, renomowaną galerię, renomowany ośrodek artystyczny lub renomowaną instytucję kultury",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtIndividualExhibitionEvaluatedEntity",
-      "en": "an individual original exhibition of visual arts, photography, multimedia, interactive, design or conservation work organised in a gallery run by the entity being evaluated",
-      "pl": "indywidualna autorska wystawa prezentująca dzieła plastyczne, fotograficzne, multimedialne, interaktywne, projektowe lub konserwatorskie zorganizowana w galerii prowadzonej przez ewaluowany podmiot",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtGallery",
-      "en": "authorship of a visual work distributed in the gallery circuit",
-      "pl": "autorstwo dzieła plastycznego rozpowszechnionego w obiegu galeryjnym",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtJury",
-      "en": "being a member of the jury of an art competition or festival, including a photographic competition, of at least national scope, organised by a renowned artistic centre or cultural institution of renown",
-      "pl": "udział w jury konkursu lub festiwalu plastycznego, w tym fotograficznego, o zasięgu co najmniej ogólnopolskim, zorganizowanych przez renomowany ośrodek artystyczny lub renomowaną instytucję kultury",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtCurator",
-      "en": "Acting as curator of an exhibition, art project or event in the visual arts, including photography, multimedia, interactive or design, or in the field of art conservation",
-      "pl": "pełnienie funkcji kuratora wystawy, projektów artystycznych lub wydarzenia z zakresu sztuk plastycznych, w tym fotograficznych, multimedialnych, interaktywnych lub projektowych, lub z zakresu konserwacji dzieł sztuki",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtOther",
-      "en": "other types of plastic works presented to the public",
-      "pl": "inne rodzaje dzieł plastycznych prezentowane w obiegu publicznym",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtPublication",
-      "en": "authorship of a publication in the field of fine arts or art conservation",
-      "pl": "autorstwo publikacji z zakresu sztuk plastycznych lub konserwacji dzieł sztuki",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtEdition",
-      "en": "editing of publications in the field of fine arts or art conservation",
-      "pl": "redakcja publikacji z zakresu sztuk plastycznych lub konserwacji dzieł sztuki",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "item.page.type.ArtChapter",
-      "en": "authorship of a chapter in a multi-author publication in the field of fine arts or art conservation",
-      "pl": "autorstwo rozdziału w publikacji wieloautorskiej z zakresu sztuk plastycznych lub konserwacji dzieł sztuki",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.article",
-      "en": "Article",
-      "pl": "Artykuł",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.monography",
-      "en": "Monography",
-      "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.artistic",
-      "en": "Artistic",
-      "pl": "Artystyczne",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.dataset",
-      "en": "Dataset",
-      "pl": "Dane badawcze",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.book",
-      "en": "Book",
-      "pl": "Monografia",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.true",
-      "en": "Yes",
-      "pl": "Tak",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "swps.facet.type.false",
-      "en": "No",
-      "pl": "Nie",
-      "dspace": false,
-      "cris": false,
-      "pcg": false,
-      "swps": true,
-      "asp": false,
-      "uw": false
-    },
-    {
-      "id": "7r7al1g",
-      "key": "",
-      "dspace": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "cris": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "pcg": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "swps": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "asp": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "uw": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "EbyhGD6",
-      "key": "",
-      "dspace": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "cris": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "pcg": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "swps": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "asp": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      },
-      "uw": {
-        "active": false,
-        "pl": "",
-        "en": ""
-      }
-    },
-    {
-      "key": "test.backend.key",
-      "spaces": [
-        {
-          "name": "testspace",
-          "languages": [
-            [
-              "pl",
-              "testcontent"
-            ],
-            [
-              "en",
-              "testcontent"
-            ]
-          ]
-        }
-      ],
-      "id": "brcBHjz"
-    },
-    {
-      "key": "test.tset",
-      "spaces": [
-        {
-          "name": "dspace",
-          "languages": [
-            [
-              "pl",
-              ""
-            ],
-            [
-              "en",
-              "dsa"
-            ],
-            [
-              "pl",
-              "gsdfgsdfg"
-            ],
-            [
-              "en",
-              "testexample"
-            ],
-            [
-              "pl",
-              "a"
-            ],
-            [
-              "en",
-              ""
-            ]
-          ]
-        },
-        {
-          "name": "cris",
-          "languages": []
-        },
-        {
-          "name": "asp",
-          "languages": []
-        }
-      ],
-      "id": "qzJJ5Ew"
-    },
-    {
-      "key": "test.test",
-      "spaces": [],
-      "id": "dLmK_R7"
     }
   ]
 }

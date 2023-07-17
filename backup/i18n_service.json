@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+           "name": "i18n_service",
+           "cwd": "/var/www/html",
+           "script": "json-server",
+           "args": "--watch tlumaczenia.json --port 3300",
+           "interpreter": "none"
+        }
+    ]
+}

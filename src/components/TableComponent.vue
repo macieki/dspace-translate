@@ -16,6 +16,7 @@
 			</v-row>
 		</v-container>
 		<v-data-table
+		 	@click:row="handleClick"
 			:headers="headers"
 			:items="listAll"
 			height="100%"
@@ -24,13 +25,15 @@
 			:custom-sort="customSort"
 			:search="search"
 			fixed-header
-			dark
+			
+			:footer-props="{'items-per-page-options':[10, 50, 100]}"
+			:class="{ god: isGod}"
 		>
 
 	<template v-slot:top>
       <v-toolbar
       >
-        <v-toolbar-title>tłumaczenia CRUD</v-toolbar-title>
+        <v-toolbar-title>Tłumacz DSpace</v-toolbar-title>
 
         <v-spacer></v-spacer>
 		<v-btn
@@ -41,7 +44,7 @@
 		 >
 		   Pobierz
 		 </v-btn>
-        <v-dialog
+		    <v-dialog
           v-model="dialog"
           width="100%"
 		  		max-width="1200px"
@@ -65,70 +68,194 @@
             </v-card-title>
 
             <v-card-text >
-              <v-container fluid>
+              <v-container fluid class="minH">
 				
                     <v-text-field
-                      v-model="editedItem.id"
+                      v-model="editedItem.key"
                       label="Klucz"
 					 						:background-color="validationColor"
 					  					color="white"
 					  					:disabled="isKeyLabelDisabled"
                     ></v-text-field>
 
-                    <v-text-field
-                      v-model="editedItem.en"
-                      label="English"
-					  					color="white"
-                    ></v-text-field>
-
-                    <v-text-field
-                      v-model="editedItem.pl"
-                      label="Polski"
-					  					color="white"
-                    ></v-text-field>
-									<v-row>
-										<v-col cols="6">
-
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.dspace.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.dspace"
+											v-model="editedItem.dspace.active"
 											label="DSpace"
 											color="green"
+											@click="checkBox('dspace')"
 										></v-checkbox>
-
+										<div v-if="editedItem.dspace.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.dspace.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.dspace.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>									
+									
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.cris.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.cris"
+											v-model="editedItem.cris.active"
 											label="Cris"
 											color="green"
 										></v-checkbox>
-										
-										</v-col>
-										<v-col cols="6">
-
+										<div v-if="editedItem.cris.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.cris.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.cris.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>									
+									
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.pcg.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.pcg"
+											v-model="editedItem.pcg.active"
 											label="PCG"
 											color="green"
+											@click="click(editedItem)"
 										></v-checkbox>
-
+										<div v-if="editedItem.pcg.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.pcg.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.pcg.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>									
+									
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.swps.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.swps"
+											v-model="editedItem.swps.active"
 											label="SWPS"
 											color="green"
 										></v-checkbox>
-
+										<div v-if="editedItem.swps.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.swps.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.swps.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.asp.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.asp"
+											v-model="editedItem.asp.active"
 											label="ASP"
 											color="green"
 										></v-checkbox>
-										
+										<div v-if="editedItem.asp.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.asp.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.asp.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.uw.active}">
 										<v-checkbox dense class="ma-0"
-											v-model="editedItem.uw"
+											v-model="editedItem.uw.active"
 											label="UW"
 											color="green"
 										></v-checkbox>
-
-										</v-col>
+										<div v-if="editedItem.uw.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uw.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uw.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
 									</v-row>
 
               </v-container>
@@ -164,6 +291,15 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+        <v-dialog v-model="dialogError" max-width="500px">
+          <v-card>
+            <v-card-title class="text-h5 red">Błąd serwera</v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-spacer></v-spacer>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 				<v-dialog v-model="dialogSave" max-width="500px">
           <v-card>
             <v-card-title class="text-h5">Pobierz JSON</v-card-title>
@@ -195,7 +331,7 @@
 										color="secondary"
 										dark
 										class="mb-2"
-										@click="saveJson('pl')"
+										@click="saveJson2('pl')"
 									>
 										Pobierz JSON pl
 									</v-btn>
@@ -203,7 +339,7 @@
 										color="secondary"
 										dark
 										class="mb-2"
-										@click="saveJson('en')"
+										@click="saveJson2('en')"
 									>
 										Pobierz JSON en
 									</v-btn>
@@ -229,11 +365,18 @@
         mdi-delete
       </v-icon>
     </template>
-	    <template v-slot:item="{ item }">
+
+
+
+
+<!--------------------------->
+<!-- wiersze tabeli  -->
+<!--------------------------->
+
+	  <template v-slot:item="{ item }">
 		<tr>
-			<td v-for="(header, index) in headers" :key="index">
+			<td v-for="(header, index) in headers" :key="index" @click="handleClick">
 				<template v-if="header.value ==  'actions' ">
-					
 					<v-icon
 						small
 						class="mr-2"
@@ -250,32 +393,39 @@
 				</template>
 				<template v-else-if="header.value ==  'cris' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.cris"
+						v-model="item.cris.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'dspace' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.dspace"
+						v-model="item.dspace.active"
 					></v-checkbox>
+					
+				</template>
+				<template v-else-if="header.value ==  'translationExample1' ">
+								{{item["translationExample1"]}}
+				</template>
+				<template v-else-if="header.value ==  'translationExample2' ">
+								{{item["translationExample2"]}}
 				</template>
 				<template v-else-if="header.value ==  'pcg' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.pcg"
+						v-model="item.pcg.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'swps' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.swps"
+						v-model="item.swps.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'asp' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.asp"
+						v-model="item.asp.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'uw' ">
 					<v-checkbox dense class="ma-0" disabled
-						v-model="item.uw"
+						v-model="item.uw.active"
 					></v-checkbox>
 				</template>
 				<template v-else>
@@ -317,27 +467,95 @@ export default {
 		api: ""
 	},
 	methods: {
-		click(index){
-			console.log(this.downloads.base[index].active)
+		handleClick(value){
+			console.log(value)
+		},
+		click(el){
+			console.log(el)
+		},
+		checkBox(item){
+			setTimeout(() => {
+				if(this.editedItem[item].active){
+					console.log("active")
+					this.editedItem[item].active = true
+				}else{
+					console.log("notactive")
+					this.editedItem[item].active = false
+				}
+			}, 1);
 		},
 		saveModal(){
 			this.dialogSave = true
 		},
-		slicer( item, spaceNames ){
+		slicer( item, spaceNames, lang ){
+			//console.log('spaces',this.spaces)
+			this.spaces.forEach((el)=>{
+				if(item[el].active){
+					Object.defineProperty(item, lang, {
+						value: item[el][lang],
+						writable: true
+					})
+				}
+			})
+			if(item.key=="401.test"){
+				console.log('4021', item)
+			}
+			//const pairs = item.langitem[el][lang]
 			const pairs = Object.entries(item)
+			//console.log('pairs',pairs)
 			const filteredPairs = pairs.filter(x => (x[1]==true && spaceNames.some(y => y==x[0])))
 			//console.log('filteredPairs',filteredPairs)
 			//console.log(pairs)
 			if(filteredPairs.length === 0 )return false
 			else return true
 		},
+		saveJson2(lang){
+			const spaces = [...this.downloads.base.filter(x=>x.active==true), ...this.downloads.supplement.filter(x=>x['active']==true)]
+			const spaceNames = spaces.map((x) => x.value).reverse()
+			
+			let json = {}
+			this.listAll.forEach( (element)=>{
+				let arr = [element.key]
+				let set = false
+				spaceNames.forEach((el)=>{
+					if(!set){
+						if(element[el][lang]){
+							arr.push(element[el][lang])
+							set = true
+						}
+						//set = true
+					}
+				})
+				Object.defineProperty(json, arr[0], {
+					value: arr[1],
+					enumerable: true
+				})
+			})
+			console.log('json',json)
+			console.log(JSON.stringify(json))
+			this.download(lang+'.json5', JSON.stringify(json))
+		},
 		saveJson(lang){
 			const spaces = [...this.downloads.base.filter(x=>x.active==true), ...this.downloads.supplement.filter(x=>x['active']==true)]
 			const spaceNames = spaces.map((x) => x.value)
-			const listSpaces = this.listAll.filter(x => (this.slicer(x, spaceNames)))
+			console.log('spacenames',spaceNames) 
+			item2 = {key: item.key, id: item.id, }
+			spaceNames.forEach((el)=>{
+				if(item[el].active){
+					Object.defineProperty(item, el, {
+						value: item[el][lang],
+						writable: true
+					})
+				}
+			})
+
+			const listSpaces = this.listAll.filter(x => (this.slicer(x, spaceNames, lang)))
 			let newJson = listSpaces.map((item) => [item.id,item[lang]]  )
+
 			newJson = Object.fromEntries(newJson)
-			this.download('en.json5', JSON.stringify(newJson))
+			console.log(newJson)
+			console.log(Object.keys(newJson).length)
+			//this.download(lang+'.json5', JSON.stringify(newJson))
 		},
 		saveJsonPl(){
 			let newJsonPl = this.listAll.map((item) => [item.id,item.pl]  )
@@ -379,19 +597,47 @@ export default {
 		},
 		editItem (item) {
 		    this.editedIndex = this.listAll.indexOf(item)
-		    this.editedItem = Object.assign({}, item)
+				const arr = this.spaces
+				this.editedItem.key = item.key
+				this.editedItem.id = item.id
+				arr.forEach((el)=>{
+					if(item.hasOwnProperty(el)){
+						if(item[el].active){
+							this.editedItem[el].active = true
+							this.editedItem[el].pl = item[el].pl
+							this.editedItem[el].en = item[el].en
+							//this.editedItem[el].en = true
+						}else{
+							this.editedItem[el].active = false
+						}
+					}
+					if(!item.hasOwnProperty(el)){
+						//item.el = {active: false, pl: "", en: ""}
+						Object.defineProperty(item, el, {
+							value: {"active": false}
+						})
+					}
+				}) 
+				
+				console.log('editedItem',this.editedItem)
+
+
 		    this.dialog = true
-			this.isKeyLabelDisabled = true
+				this.isKeyLabelDisabled = true
+				//this.editedItem = JSON.parse(JSON.stringify(item));
+
 		},
 
 		deleteItem (item) {
 		    this.editedIndex = this.listAll.indexOf(item)
-		    this.editedItem = Object.assign({}, item)
+				
+		    //this.editedItem = Object.assign({}, item)
 		    this.dialogDelete = true
 		},
 
 		deleteItemConfirm () {
-			axios.delete(`${this.api}/${this.editedItem.id}`)
+			let id = this.listAll[this.editedIndex]["id"]
+			axios.delete(this.restUpdate+"/i18n/api/v1/translations/"+id)
 		    this.listAll.splice(this.editedIndex, 1)
 		    this.closeDelete()
 		},
@@ -400,54 +646,342 @@ export default {
 			this.isKeyLabelDisabled = false
 			this.alert = ""
 		    this.dialog = false
+				console.log('close')
 		    this.$nextTick(() => {
-		    	this.editedItem = Object.assign({}, this.defaultItem)
 		    	this.editedIndex = -1
+					this.editedItem.id = this.defaultItem.id
+					this.editedItem.key = this.defaultItem.key
+					this.editedItem.translationExample1 = this.defaultItem.translationExample1
+					this.editedItem.translationExample2 = this.defaultItem.translationExample2
+
+					this.spaces.forEach( (el) => {
+						this.editedItem[el].active = this.defaultItem[el].active
+						this.editedItem[el].pl = this.defaultItem[el].pl
+						this.editedItem[el].en = this.defaultItem[el].en
+					})
 		    })
 		},
 
 		closeDelete () {
 			this.dialogDelete = false
 			this.$nextTick(() => {
-				this.editedItem = Object.assign({}, this.defaultItem)
 				this.editedIndex = -1
+				this.editedItem.id = this.defaultItem.id
+				this.editedItem.key = this.defaultItem.key
+				this.editedItem.translationExample1 = this.defaultItem.translationExample1
+				this.editedItem.translationExample2 = this.defaultItem.translationExample2
+				
+				this.spaces.forEach( (el) => {
+					this.editedItem[el].active = this.defaultItem[el].active
+					this.editedItem[el].pl = this.defaultItem[el].pl
+					this.editedItem[el].en = this.defaultItem[el].en
+				})
 			})
 		},
-		save () {
-			console.log(this.editedItem)
-			if (this.editedIndex > -1) {
-				Object.assign(this.listAll[this.editedIndex], this.editedItem)
-				axios.patch(`${this.api}/${this.editedItem.id}`, 
-					this.editedItem
-				)
-				console.log(this.editedItem)
-				this.close()
-			}
-			else{
-				if(!this.editedItem.id){
-					this.alert = "klucz musi być wypełniony"
+		async save () {
+			this.lastIndex = this.editedIndex
+			let isExampleSet = false
+			let item = this.editedItem
+			this.editedItem["translationExample1"] = " "
+			this.editedItem["translationExample2"] = " "
+			this.spaces.forEach( (el) => {
+				if(this.editedItem.hasOwnProperty(el) && !isExampleSet){
+					if(this.editedItem[el].en){ 
+						this.editedItem.translationExample1 = this.editedItem[el].en
+						isExampleSet = true 
+					}
+					if(this.editedItem[el].pl){ 
+						this.editedItem.translationExample2 = this.editedItem[el].pl
+						isExampleSet = true 
+					}
 				}
-				else if( this.listAll.find(e => e.id === this.editedItem.id) ){
-					this.alert = "klucz już egzystuje"
-				}
-				else{
-					this.listAll.push(this.editedItem)
-					console.log(this.editedItem)
-					axios.post(this.api, 
-						this.editedItem
+			})
+
+  			if (this.editedIndex > -1) {
+
+					//Object.assign(this.listAll[this.editedIndex], this.editedItem)
+					this.listAll[this.editedIndex].id = this.editedItem.id
+					this.listAll[this.editedIndex].key = this.editedItem.key
+					this.listAll[this.editedIndex].translationExample1 = this.editedItem.translationExample1
+					this.listAll[this.editedIndex].translationExample2 = this.editedItem.translationExample2
+					this.spaces.forEach( (el) => {
+						if(this.editedItem.hasOwnProperty(el)){
+							this.listAll[this.editedIndex][el].active = this.editedItem[el].active
+							this.listAll[this.editedIndex][el].pl = this.editedItem[el].pl
+							this.listAll[this.editedIndex][el].en = this.editedItem[el].en
+						}
+					})
+				let payload = this.constructPayload()
+				console.log(payload)
+    			try {
+					await axios.put(this.restUpdate+"/i18n/api/v1/translations/"+this.editedItem["id"], 
+					//await axios.put(`${this.api}/${this.editedItem.id}`, 
+						payload
 					)
+				} catch (e){
+					this.dialogError = true
+					console.log('ERR')
+					console.log(e)
+					this.makeExample()
 					this.close()
 				}
+				
+			}
+			else{
+				if(!this.editedItem.key){
+					this.alert = "klucz musi być wypełniony"
+					console.log(this.editedItem.key)
+				}
+				else if( this.listAll.find(e => e.key === this.editedItem.key) ){
+					
+					console.log('find',this.listAll.find(e => e.key === this.editedItem.key))
+					this.alert = "klucz już egzystuje + " + this.editedItem.key
+					console.log(this.editedItem.key)
+				}
+				else{
+					console.log(this.lastIndex, this.listAll)
+					let payload = this.constructPayload()
+					try{
+						await axios.post(this.restUpdate+"/i18n/api/v1/translations", 
+							payload
+						)
+						this.pushTranslation()
+						this.lastIndex = this.listAll.length - 1
+						this.makeExample()
+						this.close()
+					} catch (e){
+						console.log('ERR')
+						console.log(e)
+						this.pushTranslation()
+						this.lastIndex = this.listAll.length - 1
+						this.makeExample()
+						this.close()
+					}
+					
+					console.log('listAll',this.listAll)
+					
+				}
+			}
+		}, 
+		pushTranslation(){
+			
+				let row = {
+					id:this.editedItem.id,
+					key:this.editedItem.key,
+					translationExample1:"",
+					translationExample2:""
+				}
+				let valPl =""
+				let valEn =""
+				this.spaces.forEach(space => {
+					if(this.editedItem[space]){
+						Object.defineProperty(row, space, {
+							value: {
+								"active":this.editedItem[space].active,
+								"pl":this.editedItem[space].pl,
+								"en":this.editedItem[space].en},
+							configurable: true
+						})
+					}else{
+						Object.defineProperty(row, space, {
+							value: {"active":true,"pl":valPl,"en":valEn},
+							configurable: true
+						})
+					}
+
+				});
+				this.listAll.push(row)
+				console.log('row',row)
+		},
+		makeExample(){
+			let isExampleSet1 = false
+			this.spaces.forEach((el)=>{
+				if(this.listAll[this.lastIndex].hasOwnProperty(el) && !isExampleSet1){
+					if(this.listAll[this.lastIndex][el].active){ 
+						this.listAll[this.lastIndex].translationExample1 = this.listAll[this.lastIndex][el].en
+						this.listAll[this.lastIndex].translationExample2 = this.listAll[this.lastIndex][el].pl
+						isExampleSet1 = true 
+					}
+				}
+			})
+		},
+		constructPayload(){
+			let payload = {}
+			payload["key"] = this.editedItem.key
+			let spaceIndex = 0
+			payload["spaces"] = []
+			this.spaces.forEach(el => {
+				if(this.editedItem[el].active){
+					payload["spaces"].push({"name":el, "languages": [] })
+					payload["spaces"][spaceIndex]["languages"].push([ "pl", this.editedItem[el]["pl"] ])
+					payload["spaces"][spaceIndex]["languages"].push([ "en", this.editedItem[el]["en"] ])
+					spaceIndex++
+					//payload["spaces"][spaceIndex]
+					//payload["spaces"].push(el)
+				}
+			})
+			return payload
+		},
+		async getTranslations(){
+			let temp =[]
+			axios
+				.get(this.rest+"/i18n/api/v1/translations")
+				.then(res => this.handleTranslations(res.data))
+				.then()
+
+		},
+		handleTranslations(temp){
+			
+			let arrd = []
+			temp.forEach((element, index) => {
+				let row = {
+					id:element.id,
+					key:element.key,
+					translationExample1:"",
+					translationExample2:""
+				}
+				let valPl =""
+				let valEn =""
+				element["spaces"].forEach(space => {
+					
+					if(space.languages){
+						if(space.languages.some(el => el[0] === "pl")){
+							valPl = space.languages.find(obj => obj[0] === "pl")[1]
+						}else{
+							valPl = ""
+						}
+						if(space.languages.some(el => el[0] === "en")){
+							valEn = space.languages.find(obj => obj[0] === "en")[1]
+						}else{
+							valEn = ""
+						}
+					}
+					Object.defineProperty(row, space.name, {
+						value: {"active":true,"pl":valPl,"en":valEn},
+						configurable: true
+					})
+				});
+					
+				const arr = this.spaces
+				let isExampleSet = false
+				row.translationExample1 = ""
+				row.translationExample2 = ""
+				arr.forEach( function(el){
+					if(row.hasOwnProperty(el) && !isExampleSet){
+						if(row[el].active){ 
+							row.translationExample1 = row[el].en
+							row.translationExample2 = row[el].pl
+							isExampleSet = true 
+						}
+					}
+					if(!row.hasOwnProperty(el)){
+						//item.el = {active: false, pl: "", en: ""}
+						Object.defineProperty(row, el, {
+							value: {"active":false,"pl":"","en":""},
+							configurable: true
+						})
+					}
+					
+				})
+				arrd.push(row)
+				row = {}
+			})
+
+			console.log('arrd',arrd)
+			this.listAll = arrd
+		},
+
+
+		async newTranslation(obj){
+			let dataSend = {
+				"key": obj.key
+			}
+			console.log('sataSend',dataSend)
+			try{
+				const res = await axios.get(this.restUpdate+"/i18n/api/v1/translations/")
+				console.log('res',res)
+				return (res.data)
+			}
+			catch(err){
+				console.log('err',err)
+			}
+		},
+		async saveTranslation(){
+			try{
+				const dataSend={
+					"key": "test.test",
+					"space": "cris",
+					"languages": [
+						{
+							"locale": "en",
+							"data": "english"
+						},
+						{
+							"locale": "pl",
+							"data": "polski"
+						}
+					]
+				}
+			const res = await axios.put(this.restUpdate+"/i18n/api/v1/translations/63aaf6adf46fec261499ed80", dataSend)
+			console.log('res',res)
+			return (res.data)
+			}
+			catch(err){
+				console.log('err',err)
+			}
+		},
+		async deleteTranslation(id){
+			console.log(id)
+			try{
+				const res = await axios.delete(this.restUpdate+"/i18n/api/v1/translations/"+id)
+				console.log('delete',res)
+				console.log('deleted')
+			}
+			catch(err){
+				console.log('err',err)
 			}
 		}
-			
+	},
+	async mounted () { 
+		let temp = []
+		this.getTranslations()
+		//let temp = this.mockApi
+		//this.handleTranslations(temp)
+		//this.listAll = temp
+		/*
+		let vm = this
+		const res = await axios.get(this.api)
+		this.listAll = res.data
+		console.log(this.listAll)
+		//this.lastId = Number(this.listAll[this.listAll.length-1].id)
+		let arr = ['id', 'en', 'pl', 'dspace', 'cris', 'actions']
+		this.downloads.supplement=this.headers.filter(x => !arr.includes(x['value'])) 
+		*/
+		window.addEventListener("keypress", (e) => {
+			if(!this.isGod){
+				this.keystrokes.unshift(e.key.toString())
+				this.keystrokes.splice(10,1)
+				this.isGod = (this.godPassword.length == this.keystrokes.length) && this.godPassword.every( (element, index) => {return element === this.keystrokes[index]  })
+				if(this.isGod){
+					this.restUpdate ="https://test.dspace7.com"
+				}
+			}
+    })
 	},
 	data: () => ({
-		clicks: true,
+		rest: "https://test.dspace7.com",
+		restUpdate: "",
+		godPassword: ["a","r","t","s","u","t","a","r","a","z"],
+		keystrokes: ["","","","","","","","","",""],
+		isGod: false,
 		host: window.location.origin,
 		dialog: false,
 		dialogDelete: false,
+		counter1: 0,
 		dialogSave: false,
+		lastIndex: 0,
+		dialogError: false,
+		itemToDelete: "",
 		validationColor: "initial",
 		isKeyLabelDisabled: false,
 		alert: "",
@@ -457,31 +991,44 @@ export default {
 		all: 'Wszystkie',
 		actionsLabel: 'actions',
 		headers: [
-			{text: 'Klucz', value: 'id'},
-			{text: 'English', value: 'en'},
-			{text: 'Polski', value: 'pl'},
-			{text: 'DSpace', value: 'dspace'},
-			{text: 'Cris', value: 'cris'},
-			{text: 'PCG', value: 'pcg'},
-			{text: 'SWPS', value: 'swps'},
-			{text: 'ASP', value: 'asp'},
-			{text: 'UW', value: 'uw'},
-			{text: 'Akcje', value: 'actions', sortable: false }
+			{text: 'Klucz', value: 'key', width: '500px'},
+			{text: 'en', value: 'translationExample1', width: 'auto'},
+			{text: 'pl', value: 'translationExample2', width: 'auto'},
+			{text: 'Dspace', value: 'dspace', width: '50px'},
+			{text: 'Cris', value: 'cris', width: '50px'},
+			{text: 'PCG', value: 'pcg', width: '50px'},
+			{text: 'SWPS', value: 'swps', width: '50px'},
+			{text: 'ASP', value: 'asp', width: '50px'},
+			{text: 'UW', value: 'uw', width: '50px'},
+			{text: ' ', value: 'actions', sortable: false, width: '50px'}
 		],
+		spaces: ['dspace','cris','pcg','swps','asp','uw'],
 		listEn: [],
 		listPl: [],
 		listAll: [],
+		listAll2: [],
 		editedIndex: -1,
 		editedItem: {
 			id: '',
-			en: "",
-			pl: "",
-			dspace: true,
-			cris: true,
-			pcg: false,
-			swps: false,
-			asp: false,
-			uw: false
+			key: '',
+			dspace: {
+				active: false, pl: "", en: ""
+			},
+			cris: {
+				active: false, pl: "", en: ""
+			},
+			pcg: {
+				active: false, pl: "", en: ""
+			},
+			swps: {
+				active: false, pl: "", en: ""
+			},
+			asp: {
+				active: false, pl: "", en: ""
+			},
+			uw: {
+				active: false, pl: "", en: ""
+			}
 		},
 		downloads: {
 			base: [
@@ -489,29 +1036,35 @@ export default {
 				{value:'cris', text:"Cris", active:true}
 			],
 			supplement: [
-				
+				{value:'pcg', text:"PCG", active:true},
+				{value:'swps', text:"SWPS", active:true},
+				{value:'asp', text:"ASP", active:true},
+				{value:'uw', text:"UW", active:true}
 			]
 		},
 		defaultItem: {
 			id: '',
-			en: "",
-			pl: "",
-			dspace: true,
-			cris: true,
-			pcg: false,
-			swps: false,
-			asp: false,
-			uw: false
+			key: '',
+			dspace: {
+				active: false, pl: "", en: ""
+			},
+			cris: {
+				active: false, pl: "", en: ""
+			},
+			pcg: {
+				active: false, pl: "", en: ""
+			},
+			swps: {
+				active: false, pl: "", en: ""
+			},
+			asp: {
+				active: false, pl: "", en: ""
+			},
+			uw: {
+				active: false, pl: "", en: ""
+			}
 		},
-	}),
-	async mounted () {
-		let vm = this
-		const res = await axios.get(this.api)
-		this.listAll = res.data
-		//this.lastId = Number(this.listAll[this.listAll.length-1].id)
-		let arr = ['id', 'en', 'pl', 'dspace', 'cris', 'actions']
-		this.downloads.supplement=this.headers.filter(x => !arr.includes(x['value']))
-	}
+	})
 }
 </script>
 <style lang="scss">
@@ -592,5 +1145,25 @@ export default {
 	}
 	.red1{
 		background-color: #D8A0A0;
+	}
+
+	.expandRow{
+		padding: 12px;
+		
+		.w-100{
+			width: 100%;
+		}
+		&.active{
+			background: #333;
+		}
+	}
+	.minH{
+		min-height: 620px;
+	}
+	.god{
+		opacity: .9!important;
+		> *{
+			color: gold!important
+		}
 	}
 </style>
