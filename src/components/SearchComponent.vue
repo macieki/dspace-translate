@@ -1,7 +1,6 @@
 <template>
 <div>
   <div id="app">
-    <h1>Shopping List</h1>
     <input v-model="itemName" type="text" /><br />
     <button @click="addItem()">Add Item</button>
     <button @click="download('json.json', itemName)">Download JSON</button>

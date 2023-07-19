@@ -36,7 +36,7 @@ npm run serve
 npm run build
 ```
 
-### Configure API on the server in dist/config.json
+### Configure API on the server in dist/config.json // HOST/config.json
 
 ```sh
 example "API":	"http://localhost:3300"

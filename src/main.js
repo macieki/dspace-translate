@@ -16,6 +16,8 @@ fetch(process.env.BASE_URL + "config.json")
 .then((config) => {
     Vue.prototype.$config = config
 	console.log(config)
+	Vue.prototype.$config = { API: "https://translations.dspace7.com/api"
+}
 	new Vue({
 		vuetify,
 		render: h => h(App)

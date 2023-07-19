@@ -52,11 +52,13 @@ export default {
   data: () => ({
 		isAuth: false,
 		isWelcome: true,
+		//isAuth: true,
+		//isWelcome: false,
 		isPreloading: false,
 		login: "",
 	nowe: [],
 	arr: [],
-	api: "http://localhost:3300/data"
+	api: "https://translations.dspace7.com/api/data"
   }),
 	methods:{
 		input(){

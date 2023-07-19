@@ -375,7 +375,7 @@
 
 	  <template v-slot:item="{ item }">
 		<tr>
-			<td v-for="(header, index) in headers" :key="index" @click="handleClick">
+			<td v-for="(header, index) in headers" :key="index" @click="handleClick" :class="header.class">
 				<template v-if="header.value ==  'actions' ">
 					<v-icon
 						small
@@ -407,6 +407,9 @@
 				</template>
 				<template v-else-if="header.value ==  'translationExample2' ">
 								{{item["translationExample2"]}}
+				</template>
+				<template v-else-if="header.value ==  'translationExample3' ">
+								{{item["translationExample3"]}}
 				</template>
 				<template v-else-if="header.value ==  'pcg' ">
 					<v-checkbox dense class="ma-0" disabled
@@ -596,10 +599,13 @@ export default {
 			return items;
 		},
 		editItem (item) {
+			console.log('edititem')
 		    this.editedIndex = this.listAll.indexOf(item)
+				console.log(this.editedIndex = this.listAll.indexOf(item))
 				const arr = this.spaces
 				this.editedItem.key = item.key
 				this.editedItem.id = item.id
+				console.log('arr',arr)
 				arr.forEach((el)=>{
 					if(item.hasOwnProperty(el)){
 						if(item[el].active){
@@ -653,6 +659,7 @@ export default {
 					this.editedItem.key = this.defaultItem.key
 					this.editedItem.translationExample1 = this.defaultItem.translationExample1
 					this.editedItem.translationExample2 = this.defaultItem.translationExample2
+					this.editedItem.translationExample3 = this.defaultItem.translationExample3
 
 					this.spaces.forEach( (el) => {
 						this.editedItem[el].active = this.defaultItem[el].active
@@ -670,6 +677,7 @@ export default {
 				this.editedItem.key = this.defaultItem.key
 				this.editedItem.translationExample1 = this.defaultItem.translationExample1
 				this.editedItem.translationExample2 = this.defaultItem.translationExample2
+				this.editedItem.translationExample3 = this.defaultItem.translationExample3
 				
 				this.spaces.forEach( (el) => {
 					this.editedItem[el].active = this.defaultItem[el].active
@@ -684,14 +692,17 @@ export default {
 			let item = this.editedItem
 			this.editedItem["translationExample1"] = " "
 			this.editedItem["translationExample2"] = " "
+			this.editedItem["translationExample3"] = " "
 			this.spaces.forEach( (el) => {
 				if(this.editedItem.hasOwnProperty(el) && !isExampleSet){
 					if(this.editedItem[el].en){ 
 						this.editedItem.translationExample1 = this.editedItem[el].en
+						this.editedItem.translationExample3+=this.editedItem[el].en
 						isExampleSet = true 
 					}
 					if(this.editedItem[el].pl){ 
 						this.editedItem.translationExample2 = this.editedItem[el].pl
+						this.editedItem.translationExample3+=this.editedItem[el].pl
 						isExampleSet = true 
 					}
 				}
@@ -704,6 +715,7 @@ export default {
 					this.listAll[this.editedIndex].key = this.editedItem.key
 					this.listAll[this.editedIndex].translationExample1 = this.editedItem.translationExample1
 					this.listAll[this.editedIndex].translationExample2 = this.editedItem.translationExample2
+					this.listAll[this.editedIndex].translationExample3 = this.editedItem.translationExample3
 					this.spaces.forEach( (el) => {
 						if(this.editedItem.hasOwnProperty(el)){
 							this.listAll[this.editedIndex][el].active = this.editedItem[el].active
@@ -712,7 +724,6 @@ export default {
 						}
 					})
 				let payload = this.constructPayload()
-				console.log(payload)
     			try {
 					await axios.put(this.restUpdate+"/i18n/api/v1/translations/"+this.editedItem["id"], 
 					//await axios.put(`${this.api}/${this.editedItem.id}`, 
@@ -769,7 +780,8 @@ export default {
 					id:this.editedItem.id,
 					key:this.editedItem.key,
 					translationExample1:"",
-					translationExample2:""
+					translationExample2:"",
+					translationExample3:""
 				}
 				let valPl =""
 				let valEn =""
@@ -800,6 +812,7 @@ export default {
 					if(this.listAll[this.lastIndex][el].active){ 
 						this.listAll[this.lastIndex].translationExample1 = this.listAll[this.lastIndex][el].en
 						this.listAll[this.lastIndex].translationExample2 = this.listAll[this.lastIndex][el].pl
+						this.listAll[this.lastIndex].translationExample3 = this.listAll[this.lastIndex][el].pl+this.listAll[this.lastIndex][el].en
 						isExampleSet1 = true 
 					}
 				}
@@ -838,7 +851,8 @@ export default {
 					id:element.id,
 					key:element.key,
 					translationExample1:"",
-					translationExample2:""
+					translationExample2:"",
+					translationExample3:""
 				}
 				let valPl =""
 				let valEn =""
@@ -861,12 +875,19 @@ export default {
 						configurable: true
 					})
 				});
-					
 				const arr = this.spaces
 				let isExampleSet = false
 				row.translationExample1 = ""
 				row.translationExample2 = ""
+				row.translationExample3 = ""
+				
 				arr.forEach( function(el){
+					
+					if(row.hasOwnProperty(el)){
+						if(row[el].active){ 
+							row.translationExample3 += row[el].pl+row[el].en
+						}
+					}
 					if(row.hasOwnProperty(el) && !isExampleSet){
 						if(row[el].active){ 
 							row.translationExample1 = row[el].en
@@ -994,6 +1015,7 @@ export default {
 			{text: 'Klucz', value: 'key', width: '500px'},
 			{text: 'en', value: 'translationExample1', width: 'auto'},
 			{text: 'pl', value: 'translationExample2', width: 'auto'},
+			{text: 'XXX', value: 'translationExample3', width: 'auto', class: "content"},
 			{text: 'Dspace', value: 'dspace', width: '50px'},
 			{text: 'Cris', value: 'cris', width: '50px'},
 			{text: 'PCG', value: 'pcg', width: '50px'},
@@ -1165,5 +1187,13 @@ export default {
 		> *{
 			color: gold!important
 		}
+	}
+	th{
+		&:nth-child(4){
+			display: none!important;
+		}
+	}
+	td.content{
+		display: none!important;
 	}
 </style>
