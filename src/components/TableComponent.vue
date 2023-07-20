@@ -257,6 +257,35 @@
 											</v-row>
 										</div>	
 									</v-row>
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.uj.active}">
+										<v-checkbox dense class="ma-0"
+											v-model="editedItem.uj.active"
+											label="UJ"
+											color="green"
+										></v-checkbox>
+										<div v-if="editedItem.uj.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uj.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uj.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>
 
               </v-container>
             </v-card-text>
@@ -429,6 +458,11 @@
 				<template v-else-if="header.value ==  'uw' ">
 					<v-checkbox dense class="ma-0" disabled
 						v-model="item.uw.active"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'uj' ">
+					<v-checkbox dense class="ma-0" disabled
+						v-model="item.uj.active"
 					></v-checkbox>
 				</template>
 				<template v-else>
@@ -917,7 +951,6 @@ export default {
 			let dataSend = {
 				"key": obj.key
 			}
-			console.log('sataSend',dataSend)
 			try{
 				const res = await axios.get(this.restUpdate+"/i18n/api/v1/translations/")
 				console.log('res',res)
@@ -1022,9 +1055,10 @@ export default {
 			{text: 'SWPS', value: 'swps', width: '50px'},
 			{text: 'ASP', value: 'asp', width: '50px'},
 			{text: 'UW', value: 'uw', width: '50px'},
+			{text: 'UJ', value: 'uj', width: '50px'},
 			{text: ' ', value: 'actions', sortable: false, width: '50px'}
 		],
-		spaces: ['dspace','cris','pcg','swps','asp','uw'],
+		spaces: ['dspace','cris','pcg','swps','asp','uw', 'uj'],
 		listEn: [],
 		listPl: [],
 		listAll: [],
@@ -1050,6 +1084,9 @@ export default {
 			},
 			uw: {
 				active: false, pl: "", en: ""
+			},
+			uj: {
+				active: false, pl: "", en: ""
 			}
 		},
 		downloads: {
@@ -1061,7 +1098,8 @@ export default {
 				{value:'pcg', text:"PCG", active:true},
 				{value:'swps', text:"SWPS", active:true},
 				{value:'asp', text:"ASP", active:true},
-				{value:'uw', text:"UW", active:true}
+				{value:'uw', text:"UW", active:true},
+				{value:'uj', text:"UJ", active:true}
 			]
 		},
 		defaultItem: {
@@ -1083,6 +1121,9 @@ export default {
 				active: false, pl: "", en: ""
 			},
 			uw: {
+				active: false, pl: "", en: ""
+			},
+			uj: {
 				active: false, pl: "", en: ""
 			}
 		},
