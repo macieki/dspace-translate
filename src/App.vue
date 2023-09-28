@@ -27,7 +27,7 @@
 						></v-progress-circular>
 				</div>
 			</v-container>
-      <table-component :api="api" v-if="isAuth"></table-component>
+      <table-component :api="api" v-if="isAuth" :editMode="editMode"></table-component>
 	  <div id="aa"></div>
     </v-main>
   </v-app>
@@ -52,6 +52,7 @@ export default {
   data: () => ({
 		isAuth: false,
 		isWelcome: true,
+		editMode: false,
 		//isAuth: true,
 		//isWelcome: false,
 		isPreloading: false,
@@ -63,6 +64,16 @@ export default {
 	methods:{
 		input(){
 			if(this.login=="trobriandy"){
+				this.editMode = true
+				this.isWelcome = false
+				this.isPreloading = true
+				setTimeout(() => {
+					this.isPreloading = false
+					this.isAuth = true
+				}, 2000);
+			}
+			if(this.login=="demo"){
+				this.editMode = false
 				this.isWelcome = false
 				this.isPreloading = true
 				setTimeout(() => {

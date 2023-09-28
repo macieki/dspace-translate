@@ -27,7 +27,7 @@
 			fixed-header
 			
 			:footer-props="{'items-per-page-options':[10, 50, 100]}"
-			:class="{ god: isGod}"
+			:class="{ god: isGod, demo: !editMode}"
 		>
 
 	<template v-slot:top>
@@ -62,7 +62,7 @@
             </v-btn>
           </template>
           <v-card>
-            <v-card-title class="justify-space-between">
+            <v-card-title class="justify-space-between ">
               <span class="text-h5">{{ formTitle }}</span>
               <span class="text-caption deep-orange--text text--lighten-2">{{alert}}</span>
             </v-card-title>
@@ -111,7 +111,7 @@
 									
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.cris.active}">
+											:class="{active: editedItem.cris.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.cris.active"
 											label="Cris"
@@ -141,7 +141,7 @@
 									
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.pcg.active}">
+											:class="{active: editedItem.pcg.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.pcg.active"
 											label="PCG"
@@ -172,7 +172,7 @@
 									
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.swps.active}">
+											:class="{active: editedItem.swps.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.swps.active"
 											label="SWPS"
@@ -201,7 +201,7 @@
 									</v-row>
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.asp.active}">
+											:class="{active: editedItem.asp.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.asp.active"
 											label="ASP"
@@ -230,7 +230,7 @@
 									</v-row>
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.uw.active}">
+											:class="{active: editedItem.uw.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.uw.active"
 											label="UW"
@@ -259,7 +259,7 @@
 									</v-row>
 									<v-row 
 									 		class="expandRow"
-											:class="{active: editedItem.uj.active}">
+											:class="{active: editedItem.uj.active, invisible: !editMode}">
 										<v-checkbox dense class="ma-0"
 											v-model="editedItem.uj.active"
 											label="UJ"
@@ -286,7 +286,64 @@
 											</v-row>
 										</div>	
 									</v-row>
-
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.uep.active, invisible: !editMode}">
+										<v-checkbox dense class="ma-0"
+											v-model="editedItem.uep.active"
+											label="Uniwersytet Ekonomiczny Poznań"
+											color="green"
+										></v-checkbox>
+										<div v-if="editedItem.uep.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uep.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.uep.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.upp.active, invisible: !editMode}">
+										<v-checkbox dense class="ma-0"
+											v-model="editedItem.upp.active"
+											label="Uniwersytet Przyrodniczy Poznań"
+											color="green"
+										></v-checkbox>
+										<div v-if="editedItem.upp.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.upp.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.upp.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>
               </v-container>
             </v-card-text>
 
@@ -329,14 +386,12 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-				<v-dialog v-model="dialogSave" max-width="500px">
-          <v-card>
+				<v-dialog v-model="dialogSave" max-width="500px" >
+          <v-card :class="{demo: !editMode}">
             <v-card-title class="text-h5">Pobierz JSON</v-card-title>
 						<v-card-text >
 							<v-container>
-											Baza
-											<div v-for="(baseItem, index) in downloads.base" :key="'A'+index">
-												{{downloads.base[index].active}}
+											<div v-for="(baseItem, index) in downloads.base" :key="'A'+index" class="baza">
 												<v-checkbox dense class="ma-0"
 													v-model="downloads.base[index].active"
 													:label="downloads.base[index].text"
@@ -344,10 +399,14 @@
 													@click="click(index)"
 												></v-checkbox>
 											</div>
-											Suplement
-											<div v-for="(supplementItem, index) in downloads.supplement" :key="'B'+index">{{downloads.supplement[index].active}}
-												<v-checkbox dense class="ma-0"
+											<div v-for="(supplementItem, index) in downloads.supplement" :key="'B'+index" class="suplement">
+												<v-checkbox dense class="ma-0" v-if="editMode"
 													v-model="downloads.supplement[index].active"
+													:label="downloads.supplement[index].text"
+													color="green"
+												></v-checkbox>
+												<v-checkbox dense class="ma-0" v-if="!editMode"
+													value="false"
 													:label="downloads.supplement[index].text"
 													color="green"
 												></v-checkbox>
@@ -421,12 +480,12 @@
 					</v-icon>
 				</template>
 				<template v-else-if="header.value ==  'cris' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.cris.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'dspace' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.dspace.active"
 					></v-checkbox>
 					
@@ -441,28 +500,38 @@
 								{{item["translationExample3"]}}
 				</template>
 				<template v-else-if="header.value ==  'pcg' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.pcg.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'swps' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.swps.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'asp' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.asp.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'uw' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.uw.active"
 					></v-checkbox>
 				</template>
 				<template v-else-if="header.value ==  'uj' ">
-					<v-checkbox dense class="ma-0" disabled
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.uj.active"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'uep' ">
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
+						v-model="item.uep.active"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'upp' ">
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
+						v-model="item.upp.active"
 					></v-checkbox>
 				</template>
 				<template v-else>
@@ -501,7 +570,8 @@ export default {
 		}
 	},
 	props: {
-		api: ""
+		api: "",
+		editMode: false
 	},
 	methods: {
 		handleClick(value){
@@ -1056,9 +1126,11 @@ export default {
 			{text: 'ASP', value: 'asp', width: '50px'},
 			{text: 'UW', value: 'uw', width: '50px'},
 			{text: 'UJ', value: 'uj', width: '50px'},
+			{text: 'UEP', value: 'uep', width: '50px'},
+			{text: 'UPP', value: 'upp', width: '50px'},
 			{text: ' ', value: 'actions', sortable: false, width: '50px'}
 		],
-		spaces: ['dspace','cris','pcg','swps','asp','uw', 'uj'],
+		spaces: ['dspace','cris','pcg','swps','asp','uw', 'uj', 'uep', 'upp'],
 		listEn: [],
 		listPl: [],
 		listAll: [],
@@ -1087,6 +1159,12 @@ export default {
 			},
 			uj: {
 				active: false, pl: "", en: ""
+			},
+			uep: {
+				active: false, pl: "", en: ""
+			},
+			upp: {
+				active: false, pl: "", en: ""
 			}
 		},
 		downloads: {
@@ -1099,7 +1177,9 @@ export default {
 				{value:'swps', text:"SWPS", active:true},
 				{value:'asp', text:"ASP", active:true},
 				{value:'uw', text:"UW", active:true},
-				{value:'uj', text:"UJ", active:true}
+				{value:'uj', text:"UJ", active:true},
+				{value:'uep', text:"UEP", active:true},
+				{value:'upp', text:"UPP", active:true}
 			]
 		},
 		defaultItem: {
@@ -1124,6 +1204,12 @@ export default {
 				active: false, pl: "", en: ""
 			},
 			uj: {
+				active: false, pl: "", en: ""
+			},
+			uep: {
+				active: false, pl: "", en: ""
+			},
+			upp: {
 				active: false, pl: "", en: ""
 			}
 		},
@@ -1236,5 +1322,24 @@ export default {
 	}
 	td.content{
 		display: none!important;
+	}
+	.invisible{
+		display: none!important;
+	}
+	.demo{
+		thead th:not(:first-child):not(:last-child):not(:nth-child(2)):not(:nth-child(3)){
+				display: none;
+		}
+		tbody{
+			td:last-child{
+				width: 50px;
+			}
+		}
+		.suplement{
+			display: none!important;
+		}
+		.baza:nth-child(2){
+			display: none!important;
+		}
 	}
 </style>
