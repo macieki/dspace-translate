@@ -344,6 +344,66 @@
 											</v-row>
 										</div>	
 									</v-row>
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.wsei.active, invisible: !editMode}">
+										<v-checkbox dense class="ma-0"
+											v-model="editedItem.wsei.active"
+											label="WSEI"
+											color="green"
+											@click="click(editedItem)"
+										></v-checkbox>
+										<div v-if="editedItem.wsei.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.wsei.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.wsei.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>	
+									<v-row 
+									 		class="expandRow"
+											:class="{active: editedItem.upjp2.active, invisible: !editMode}">
+										<v-checkbox dense class="ma-0"
+											v-model="editedItem.upjp2.active"
+											label="UPJP2"
+											color="green"
+											@click="click(editedItem)"
+										></v-checkbox>
+										<div v-if="editedItem.upjp2.active" class="w-100">
+											<v-row>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.upjp2.pl"
+														label="Polski"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+												<v-col cols="6">
+													<v-text-field
+														v-model="editedItem.upjp2.en"
+														label="English"
+														:background-color="validationColor"
+														color="white"
+													></v-text-field>
+												</v-col>
+											</v-row>
+										</div>	
+									</v-row>	
               </v-container>
             </v-card-text>
 
@@ -532,6 +592,16 @@
 				<template v-else-if="header.value ==  'upp' ">
 					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
 						v-model="item.upp.active"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'wsei' ">
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
+						v-model="item.wsei.active"
+					></v-checkbox>
+				</template>
+				<template v-else-if="header.value ==  'upjp2' ">
+					<v-checkbox dense class="ma-0" disabled :class="{invisible: !editMode}"
+						v-model="item.upjp2.active"
 					></v-checkbox>
 				</template>
 				<template v-else>
@@ -1122,15 +1192,17 @@ export default {
 			{text: 'Dspace', value: 'dspace', width: '50px'},
 			{text: 'Cris', value: 'cris', width: '50px'},
 			{text: 'PCG', value: 'pcg', width: '50px'},
-			{text: 'SWPS', value: 'swps', width: '50px'},
-			{text: 'ASP', value: 'asp', width: '50px'},
+			//{text: 'SWPS', value: 'swps', width: '50px'},
+			//{text: 'ASP', value: 'asp', width: '50px'},
 			{text: 'UW', value: 'uw', width: '50px'},
 			{text: 'UJ', value: 'uj', width: '50px'},
 			{text: 'UEP', value: 'uep', width: '50px'},
 			{text: 'UPP', value: 'upp', width: '50px'},
+			{text: 'WSEI', value: 'wsei', width: '50px'},
+			{text: 'UPJP2', value: 'upjp2', width: '50px'},
 			{text: ' ', value: 'actions', sortable: false, width: '50px'}
 		],
-		spaces: ['dspace','cris','pcg','swps','asp','uw', 'uj', 'uep', 'upp'],
+		spaces: ['dspace','cris','pcg','swps','asp','uw', 'uj', 'uep', 'upp', 'wsei', 'upjp2'],
 		listEn: [],
 		listPl: [],
 		listAll: [],
@@ -1165,6 +1237,12 @@ export default {
 			},
 			upp: {
 				active: false, pl: "", en: ""
+			},
+			wsei: {
+				active: false, pl: "", en: ""
+			},
+			upjp2: {
+				active: false, pl: "", en: ""
 			}
 		},
 		downloads: {
@@ -1179,7 +1257,9 @@ export default {
 				{value:'uw', text:"UW", active:true},
 				{value:'uj', text:"UJ", active:true},
 				{value:'uep', text:"UEP", active:true},
-				{value:'upp', text:"UPP", active:true}
+				{value:'upp', text:"UPP", active:true},
+				{value:'wsei', text:"WSEI", active:true},
+				{value:'upjp2', text:"UPJP2", active:true}
 			]
 		},
 		defaultItem: {
@@ -1210,6 +1290,12 @@ export default {
 				active: false, pl: "", en: ""
 			},
 			upp: {
+				active: false, pl: "", en: ""
+			},
+			wsei: {
+				active: false, pl: "", en: ""
+			},
+			upjp2: {
 				active: false, pl: "", en: ""
 			}
 		},
