@@ -1154,7 +1154,7 @@ export default {
 		window.addEventListener("keypress", (e) => {
 			if(!this.isGod){
 				this.keystrokes.unshift(e.key.toString())
-				this.keystrokes.splice(10,1)
+				this.keystrokes.splice(12,1)
 				this.isGod = (this.godPassword.length == this.keystrokes.length) && this.godPassword.every( (element, index) => {return element === this.keystrokes[index]  })
 				if(this.isGod){
 					this.restUpdate ="https://test.dspace7.com"
@@ -1165,7 +1165,7 @@ export default {
 	data: () => ({
 		rest: "https://test.dspace7.com",
 		restUpdate: "",
-		godPassword: ["a","r","t","s","u","t","a","r","a","z"],
+		godPassword: ["l","t","a","o","c","l","a","z","t","e","u","q"],
 		keystrokes: ["","","","","","","","","",""],
 		isGod: false,
 		host: window.location.origin,

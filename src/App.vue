@@ -63,7 +63,7 @@ export default {
   }),
 	methods:{
 		input(){
-			if(this.login=="trobriandy"){
+			if(this.login=="navarino"){
 				this.editMode = true
 				this.isWelcome = false
 				this.isPreloading = true
