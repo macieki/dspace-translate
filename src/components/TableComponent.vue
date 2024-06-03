@@ -1,5 +1,5 @@
 <template >
-	<v-container fluid>
+	<v-container fluid>rest updae: {{ restUpdate }} (( {{ isGod }}))
 		<v-container fluid>
 			<v-row align="center">
 				<v-col class="search-bar">
@@ -65,6 +65,7 @@
             <v-card-title class="justify-space-between ">
               <span class="text-h5">{{ formTitle }}</span>
               <span class="text-caption deep-orange--text text--lighten-2">{{alert}}</span>
+							<span><small>Ostatnia edycja: {{ editedItem.recentedit }} </small></span>
             </v-card-title>
 
             <v-card-text >
@@ -641,7 +642,9 @@ export default {
 	},
 	props: {
 		api: "",
-		editMode: false
+		editMode: false,
+		god: false,
+		user: ""
 	},
 	methods: {
 		handleClick(value){
@@ -773,12 +776,12 @@ export default {
 			return items;
 		},
 		editItem (item) {
-			console.log('edititem')
 		    this.editedIndex = this.listAll.indexOf(item)
 				console.log(this.editedIndex = this.listAll.indexOf(item))
 				const arr = this.spaces
 				this.editedItem.key = item.key
 				this.editedItem.id = item.id
+				this.editedItem.recentedit = item.recentedit
 				console.log('arr',arr)
 				arr.forEach((el)=>{
 					if(item.hasOwnProperty(el)){
@@ -831,6 +834,7 @@ export default {
 		    	this.editedIndex = -1
 					this.editedItem.id = this.defaultItem.id
 					this.editedItem.key = this.defaultItem.key
+					this.editedItem.recentedit = this.defaultItem.recentedit
 					this.editedItem.translationExample1 = this.defaultItem.translationExample1
 					this.editedItem.translationExample2 = this.defaultItem.translationExample2
 					this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -849,6 +853,7 @@ export default {
 				this.editedIndex = -1
 				this.editedItem.id = this.defaultItem.id
 				this.editedItem.key = this.defaultItem.key
+				this.editedItem.recentedit = this.defaultItem.recentedit
 				this.editedItem.translationExample1 = this.defaultItem.translationExample1
 				this.editedItem.translationExample2 = this.defaultItem.translationExample2
 				this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -861,6 +866,7 @@ export default {
 			})
 		},
 		async save () {
+			this.editedItem.recentedit = this.user
 			this.lastIndex = this.editedIndex
 			let isExampleSet = false
 			let item = this.editedItem
@@ -887,6 +893,7 @@ export default {
 					//Object.assign(this.listAll[this.editedIndex], this.editedItem)
 					this.listAll[this.editedIndex].id = this.editedItem.id
 					this.listAll[this.editedIndex].key = this.editedItem.key
+					this.listAll[this.editedIndex].recentedit = this.editedItem.recentedit
 					this.listAll[this.editedIndex].translationExample1 = this.editedItem.translationExample1
 					this.listAll[this.editedIndex].translationExample2 = this.editedItem.translationExample2
 					this.listAll[this.editedIndex].translationExample3 = this.editedItem.translationExample3
@@ -920,7 +927,7 @@ export default {
 				else if( this.listAll.find(e => e.key === this.editedItem.key) ){
 					
 					console.log('find',this.listAll.find(e => e.key === this.editedItem.key))
-					this.alert = "klucz już egzystuje + " + this.editedItem.key
+					this.alert = "klucz już egzystuje: " + this.editedItem.key
 					console.log(this.editedItem.key)
 				}
 				else{
@@ -953,6 +960,7 @@ export default {
 				let row = {
 					id:this.editedItem.id,
 					key:this.editedItem.key,
+					recentedit:this.editedItem.recentedit,
 					translationExample1:"",
 					translationExample2:"",
 					translationExample3:""
@@ -995,6 +1003,8 @@ export default {
 		constructPayload(){
 			let payload = {}
 			payload["key"] = this.editedItem.key
+			console.log()
+			payload["recentedit"] = this.editedItem.recentedit
 			let spaceIndex = 0
 			payload["spaces"] = []
 			this.spaces.forEach(el => {
@@ -1007,6 +1017,7 @@ export default {
 					//payload["spaces"].push(el)
 				}
 			})
+			console.log('payload', payload)
 			return payload
 		},
 		async getTranslations(){
@@ -1024,6 +1035,7 @@ export default {
 				let row = {
 					id:element.id,
 					key:element.key,
+					recentedit:element.recentedit,
 					translationExample1:"",
 					translationExample2:"",
 					translationExample3:""
@@ -1136,7 +1148,12 @@ export default {
 			}
 		}
 	},
-	async mounted () { 
+	async mounted () {
+		this.isGod = this.god;
+		console.log('isgod',this.isGod) 
+		if(this.isGod){
+			this.restUpdate ="https://test.dspace7.com"
+		}
 		let temp = []
 		this.getTranslations()
 		//let temp = this.mockApi
@@ -1167,8 +1184,8 @@ export default {
 		restUpdate: "",
 		godPassword: ["l","t","a","o","c","l","a","z","t","e","u","q"],
 		keystrokes: ["","","","","","","","","",""],
-		isGod: false,
 		host: window.location.origin,
+		isGod: false,
 		dialog: false,
 		dialogDelete: false,
 		counter1: 0,
@@ -1209,6 +1226,7 @@ export default {
 		listAll2: [],
 		editedIndex: -1,
 		editedItem: {
+			recentedit: "",
 			id: '',
 			key: '',
 			dspace: {
@@ -1265,6 +1283,7 @@ export default {
 		defaultItem: {
 			id: '',
 			key: '',
+			recentedit: '',
 			dspace: {
 				active: false, pl: "", en: ""
 			},
