@@ -1003,7 +1003,6 @@ export default {
 		constructPayload(){
 			let payload = {}
 			payload["key"] = this.editedItem.key
-			console.log()
 			payload["recentedit"] = this.editedItem.recentedit
 			let spaceIndex = 0
 			payload["spaces"] = []
