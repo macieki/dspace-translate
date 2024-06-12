@@ -65,7 +65,7 @@
             <v-card-title class="justify-space-between ">
               <span class="text-h5">{{ formTitle }}</span>
               <span class="text-caption deep-orange--text text--lighten-2">{{alert}}</span>
-							<span><small>Ostatnia edycja: {{ editedItem.recentedit }} </small></span>
+							<span><small>Ostatnia edycja: {{ editedItem.recentEdit }} </small></span>
             </v-card-title>
 
             <v-card-text >
@@ -452,48 +452,15 @@
             <v-card-title class="text-h5">Pobierz JSON</v-card-title>
 						<v-card-text >
 							<v-container>
-											<div v-for="(baseItem, index) in downloads.base" :key="'A'+index" class="baza">
-												<v-checkbox dense class="ma-0"
-													v-model="downloads.base[index].active"
-													:label="downloads.base[index].text"
-													color="green"
-													@click="click(index)"
-												></v-checkbox>
-											</div>
-											<div v-for="(supplementItem, index) in downloads.supplement" :key="'B'+index" class="suplement">
-												<v-checkbox dense class="ma-0" v-if="editMode"
-													v-model="downloads.supplement[index].active"
-													:label="downloads.supplement[index].text"
-													color="green"
-												></v-checkbox>
-												<v-checkbox dense class="ma-0" v-if="!editMode"
-													value="false"
-													:label="downloads.supplement[index].text"
-													color="green"
-												></v-checkbox>
-											</div>
+												<v-btn v-for="(supplementItem, index) in downloads.supplement" :key="'C'+index" class="suplement mx-2 my-2"
+													color="secondary"
+													dark
+													@click="saveJson3(index)"
+												>
+													{{ downloads.supplement[index].text }}
+												</v-btn>
 							</v-container>
 						</v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-									<v-btn
-										color="secondary"
-										dark
-										class="mb-2"
-										@click="saveJson2('pl')"
-									>
-										Pobierz JSON pl
-									</v-btn>
-									<v-btn
-										color="secondary"
-										dark
-										class="mb-2"
-										@click="saveJson2('en')"
-									>
-										Pobierz JSON en
-									</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
           </v-card>
         </v-dialog>
       </v-toolbar>
@@ -689,6 +656,14 @@ export default {
 			if(filteredPairs.length === 0 )return false
 			else return true
 		},
+		saveJson3(index){
+			for (let i = 0; i < this.downloads.supplement.length; i++) {
+				this.downloads.supplement[i].active = false;
+			}
+			this.downloads.supplement[index].active = true
+			this.saveJson2('en');
+			this.saveJson2('pl');
+		},
 		saveJson2(lang){
 			const spaces = [...this.downloads.base.filter(x=>x.active==true), ...this.downloads.supplement.filter(x=>x['active']==true)]
 			const spaceNames = spaces.map((x) => x.value).reverse()
@@ -781,7 +756,7 @@ export default {
 				const arr = this.spaces
 				this.editedItem.key = item.key
 				this.editedItem.id = item.id
-				this.editedItem.recentedit = item.recentedit
+				this.editedItem.recentEdit = item.recentEdit
 				console.log('arr',arr)
 				arr.forEach((el)=>{
 					if(item.hasOwnProperty(el)){
@@ -834,7 +809,7 @@ export default {
 		    	this.editedIndex = -1
 					this.editedItem.id = this.defaultItem.id
 					this.editedItem.key = this.defaultItem.key
-					this.editedItem.recentedit = this.defaultItem.recentedit
+					this.editedItem.recentEdit = this.defaultItem.recentEdit
 					this.editedItem.translationExample1 = this.defaultItem.translationExample1
 					this.editedItem.translationExample2 = this.defaultItem.translationExample2
 					this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -853,7 +828,7 @@ export default {
 				this.editedIndex = -1
 				this.editedItem.id = this.defaultItem.id
 				this.editedItem.key = this.defaultItem.key
-				this.editedItem.recentedit = this.defaultItem.recentedit
+				this.editedItem.recentEdit = this.defaultItem.recentEdit
 				this.editedItem.translationExample1 = this.defaultItem.translationExample1
 				this.editedItem.translationExample2 = this.defaultItem.translationExample2
 				this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -866,7 +841,7 @@ export default {
 			})
 		},
 		async save () {
-			this.editedItem.recentedit = this.user
+			this.editedItem.recentEdit = this.user
 			this.lastIndex = this.editedIndex
 			let isExampleSet = false
 			let item = this.editedItem
@@ -893,7 +868,7 @@ export default {
 					//Object.assign(this.listAll[this.editedIndex], this.editedItem)
 					this.listAll[this.editedIndex].id = this.editedItem.id
 					this.listAll[this.editedIndex].key = this.editedItem.key
-					this.listAll[this.editedIndex].recentedit = this.editedItem.recentedit
+					this.listAll[this.editedIndex].recentEdit = this.editedItem.recentEdit
 					this.listAll[this.editedIndex].translationExample1 = this.editedItem.translationExample1
 					this.listAll[this.editedIndex].translationExample2 = this.editedItem.translationExample2
 					this.listAll[this.editedIndex].translationExample3 = this.editedItem.translationExample3
@@ -905,6 +880,7 @@ export default {
 						}
 					})
 				let payload = this.constructPayload()
+				console.log('payload', this.restUpdate+"/i18n/api/v1/translations/"+this.editedItem["id"])
     			try {
 					await axios.put(this.restUpdate+"/i18n/api/v1/translations/"+this.editedItem["id"], 
 					//await axios.put(`${this.api}/${this.editedItem.id}`, 
@@ -960,7 +936,7 @@ export default {
 				let row = {
 					id:this.editedItem.id,
 					key:this.editedItem.key,
-					recentedit:this.editedItem.recentedit,
+					recentEdit:this.editedItem.recentEdit,
 					translationExample1:"",
 					translationExample2:"",
 					translationExample3:""
@@ -1003,7 +979,7 @@ export default {
 		constructPayload(){
 			let payload = {}
 			payload["key"] = this.editedItem.key
-			payload["recentedit"] = this.editedItem.recentedit
+			payload["recentEdit"] = this.editedItem.recentEdit
 			let spaceIndex = 0
 			payload["spaces"] = []
 			this.spaces.forEach(el => {
@@ -1034,7 +1010,7 @@ export default {
 				let row = {
 					id:element.id,
 					key:element.key,
-					recentedit:element.recentedit,
+					recentEdit:element.recentEdit,
 					translationExample1:"",
 					translationExample2:"",
 					translationExample3:""
@@ -1225,7 +1201,7 @@ export default {
 		listAll2: [],
 		editedIndex: -1,
 		editedItem: {
-			recentedit: "",
+			recentEdit: "",
 			id: '',
 			key: '',
 			dspace: {
@@ -1282,7 +1258,7 @@ export default {
 		defaultItem: {
 			id: '',
 			key: '',
-			recentedit: '',
+			recentEdit: '',
 			dspace: {
 				active: false, pl: "", en: ""
 			},
