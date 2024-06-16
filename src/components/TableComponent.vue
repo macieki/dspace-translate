@@ -1,5 +1,5 @@
 <template >
-	<v-container fluid>rest updae: {{ restUpdate }} (( {{ isGod }}))
+	<v-container fluid>
 		<v-container fluid>
 			<v-row align="center">
 				<v-col class="search-bar">
@@ -65,7 +65,7 @@
             <v-card-title class="justify-space-between ">
               <span class="text-h5">{{ formTitle }}</span>
               <span class="text-caption deep-orange--text text--lighten-2">{{alert}}</span>
-							<span><small>Ostatnia edycja: {{ editedItem.recentEdit }} </small></span>
+							<span><small>Ostatnia edycja: <br> <span>{{ editedItem.recentEdit }}  {{ formatTimestamp(editedItem.recentEditDate) }}</span></small></span>
             </v-card-title>
 
             <v-card-text >
@@ -660,6 +660,7 @@ export default {
 			for (let i = 0; i < this.downloads.supplement.length; i++) {
 				this.downloads.supplement[i].active = false;
 			}
+			this.downloads.supplement[0].active = true
 			this.downloads.supplement[index].active = true
 			this.saveJson2('en');
 			this.saveJson2('pl');
@@ -751,12 +752,15 @@ export default {
 			return items;
 		},
 		editItem (item) {
+			console.log('item',item)
 		    this.editedIndex = this.listAll.indexOf(item)
 				console.log(this.editedIndex = this.listAll.indexOf(item))
 				const arr = this.spaces
 				this.editedItem.key = item.key
 				this.editedItem.id = item.id
 				this.editedItem.recentEdit = item.recentEdit
+				this.editedItem.recentEditDate = item.recentEditDate
+				console.log('data',item.recentEditDate)
 				console.log('arr',arr)
 				arr.forEach((el)=>{
 					if(item.hasOwnProperty(el)){
@@ -810,6 +814,7 @@ export default {
 					this.editedItem.id = this.defaultItem.id
 					this.editedItem.key = this.defaultItem.key
 					this.editedItem.recentEdit = this.defaultItem.recentEdit
+					this.editedItem.recentEditDate = this.defaultItem.recentEditDate
 					this.editedItem.translationExample1 = this.defaultItem.translationExample1
 					this.editedItem.translationExample2 = this.defaultItem.translationExample2
 					this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -829,6 +834,7 @@ export default {
 				this.editedItem.id = this.defaultItem.id
 				this.editedItem.key = this.defaultItem.key
 				this.editedItem.recentEdit = this.defaultItem.recentEdit
+				this.editedItem.recentEditDate = this.defaultItem.recentEditDate
 				this.editedItem.translationExample1 = this.defaultItem.translationExample1
 				this.editedItem.translationExample2 = this.defaultItem.translationExample2
 				this.editedItem.translationExample3 = this.defaultItem.translationExample3
@@ -976,6 +982,21 @@ export default {
 				}
 			})
 		},
+    formatTimestamp(timestamp) {
+      const date = new Date(timestamp);
+      
+      const options = { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: false 
+      };
+      
+      return date.toLocaleString('pl-PL', options).replace(',', ' ');
+    },
 		constructPayload(){
 			let payload = {}
 			payload["key"] = this.editedItem.key
@@ -1011,6 +1032,7 @@ export default {
 					id:element.id,
 					key:element.key,
 					recentEdit:element.recentEdit,
+					recentEditDate:element.updatedAt,
 					translationExample1:"",
 					translationExample2:"",
 					translationExample3:""
@@ -1202,6 +1224,7 @@ export default {
 		editedIndex: -1,
 		editedItem: {
 			recentEdit: "",
+			recentEditDate: "",
 			id: '',
 			key: '',
 			dspace: {
@@ -1259,6 +1282,7 @@ export default {
 			id: '',
 			key: '',
 			recentEdit: '',
+			recentEditDate: "",
 			dspace: {
 				active: false, pl: "", en: ""
 			},
@@ -1405,6 +1429,12 @@ export default {
 	}
 	.invisible{
 		display: none!important;
+	}
+	small{
+		span{
+			font-weight: 300;
+			font-size: 12px;
+		}
 	}
 	.demo{
 		thead th:not(:first-child):not(:last-child):not(:nth-child(2)):not(:nth-child(3)){
